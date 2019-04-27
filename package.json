@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "daudr-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Front end code for Michele Da Rin Fioretto's blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Michele Da Rin Fioretto <michele@daudr.me>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/Daudr/daudr-blog/issues"
   },
   "dependencies": {
     "gatsby": "^2.3.31",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "prettier": "^1.17.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://blog.daudr.me",
   "keywords": [
     "gatsby"
   ],
@@ -46,7 +46,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/Daudr/daudr-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -54,6 +54,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "deploy": "gatsby build && firebase deploy",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   }
 }

@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
+    title: `Blog di Michele Da Rin Fioretto`,
+    author: `Michele Da Rin Fioretto`,
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://blog.daudr.me`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `MicheleDaRin`,
+      facebook: `micheledarin`,
+      github: `Daudr`
     },
   },
   plugins: [
