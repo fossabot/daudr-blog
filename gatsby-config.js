@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Blog di Michele Da Rin Fioretto`,
+    title: `Dauðr Blog`,
     author: `Michele Da Rin Fioretto`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Dauðr Blog: tecnologia alla portata di tutti`,
     siteUrl: `https://blog.daudr.me`,
     social: {
       twitter: `MicheleDaRin`,
       facebook: `micheledarin`,
+      instagra: `micheleedarin`,
       github: `Daudr`
     },
   },
@@ -52,20 +53,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-45433517-6`,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Blog di Michele Da Rin Fioretto`,
-        short_name: `Dauð's Blog`,
+        name: `Dauðr Blog`,
+        short_name: `Dauðr Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/daudr-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
