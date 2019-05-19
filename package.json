@@ -1,8 +1,8 @@
 {
   "name": "daudr-blog",
   "private": true,
-  "description": "Front end code for Michele Da Rin Fioretto's blog",
-  "version": "0.1.0",
+  "description": "Front end code for Daudr's blog",
+  "version": "1.2.0",
   "author": "Michele Da Rin Fioretto <michele@daudr.me>",
   "bugs": {
     "url": "https://github.com/Daudr/daudr-blog/issues"
@@ -40,7 +40,9 @@
   },
   "homepage": "https://blog.daudr.me",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog",
+    "react"
   ],
   "license": "MIT",
   "main": "n/a",
