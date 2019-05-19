@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
+            image
           }
         }
       }
@@ -26,6 +27,7 @@ function SEO({ description, lang, meta, keywords, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const image = site.siteMetadata.image || `https://blog.daudr.me/daudr-icon.png`;
 
   return (
     <Helmet
@@ -37,7 +39,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: `${metaDescription} by Dauðr`,
         },
         {
           property: `og:title`,
@@ -67,6 +69,10 @@ function SEO({ description, lang, meta, keywords, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `og:image`,
+          content: image
+        }
       ]
         .concat(
           keywords.length > 0
