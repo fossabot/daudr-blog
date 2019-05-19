@@ -35,6 +35,9 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
+
+        <div className="sharethis-inline-share-buttons"></div>
+
         <Bio />
 
         <ul
