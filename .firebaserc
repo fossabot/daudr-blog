@@ -1,5 +1,17 @@
 {
   "projects": {
     "master": "daudr-blog"
+  },
+  "targets": {
+    "daudr-blog": {
+      "hosting": {
+        "prod": [
+          "daudr-blog"
+        ],
+        "test": [
+          "daudr-blog-test"
+        ]
+      }
+    }
   }
 }
