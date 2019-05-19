@@ -6,7 +6,7 @@
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     },
     {
-      "target": "prod",
+      "target": "test",
       "public": "public",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     }
