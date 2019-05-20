@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import Tag from "../components/tag"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -37,7 +38,23 @@ class BlogPostTemplate extends React.Component {
           }}
         />
 
-        <div className="sharethis-inline-share-buttons" style={{marginBottom: `1.75rem`}}></div>
+        <div
+          style={{
+            display: `flex`,
+            flexDirection: `row`,
+            justifyContent: `space-evenly`,
+            marginBottom: rhythm(0.5),
+          }}
+        >
+          {post.frontmatter.tags.map(tag => {
+            return <Tag tag={tag} />
+          })}
+        </div>
+
+        <div
+          className="sharethis-inline-share-buttons"
+          style={{ marginBottom: `1.75rem` }}
+        />
 
         <Bio />
 
