@@ -36,7 +36,7 @@ class BlogPostTemplate extends React.Component {
           }}
         />
 
-        <div className="sharethis-inline-share-buttons"></div>
+        <div className="sharethis-inline-share-buttons" style={{marginBottom: `1.75rem`}}></div>
 
         <Bio />
 
