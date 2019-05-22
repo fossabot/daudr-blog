@@ -3,30 +3,51 @@ import PropTypes from "prop-types"
 
 // Components
 import { Link, graphql } from "gatsby"
+import Layout from "../components/layout"
+
+import { rhythm } from "../utils/typography"
+import Bio from "../components/bio";
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
+  const siteTitle = data.site.siteMetadata.title
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
 
   return (
-    <div>
+    <Layout title={siteTitle} location={`/tags/${tag}`}>
       <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
+      {edges.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
           return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
+            <div key={node.fields.slug}>
+              <h3
+                style={{
+                  marginBottom: rhythm(1 / 4),
+                }}
+              >
+                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  {title}
+                </Link>
+              </h3>
+              <small>{node.frontmatter.date}</small>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </div>
           )
         })}
-      </ul>
-      <Link to="/tags">All tags</Link>
-    </div>
+      
+      <div style={{ marginBottom: rhythm(2.5), }}>
+        <Link to="/tags">All tags</Link>
+      </div>
+
+      <Bio />
+    </Layout>
   )
 }
 
@@ -57,6 +78,11 @@ export default Tags
 
 export const pageQuery = graphql`
   query BlogPostsByTag($tag: String) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
@@ -65,11 +91,14 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
           }
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
+            description
           }
         }
       }

@@ -1,12 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-// Utilities
-import kebabCase from "lodash/kebabCase"
-
 // Components
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
+import Layout from "../components/layout"
+import Tag from "../components/tag";
 
 const TagsPage = ({
   data: {
@@ -16,24 +15,22 @@ const TagsPage = ({
     },
   },
 }) => (
-  <div>
+  <Layout location="/tags" title="Tutti i tag">
     <SEO
       title="Tutti i tag"
       keywords={["blog", "tags", "page", "technology"]}
     />
     <div>
       <h1>Tags</h1>
-      <ul>
+      <ul style={{ display: 'flex', flexDirection: 'column' }}>
         {group.map(tag => (
-          <li key={tag.fieldValue}>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
+          <li key={tag.fieldValue} style={{ listStyle: 'none', maxWidth: '50%' }}>
+            <Tag tag={tag.fieldValue} count={tag.totalCount}></Tag>
           </li>
         ))}
       </ul>
     </div>
-  </div>
+  </Layout>
 )
 
 TagsPage.propTypes = {
