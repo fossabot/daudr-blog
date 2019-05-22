@@ -1,20 +1,25 @@
 import React, { useState } from "react"
+import kebabCase from "lodash/kebabCase"
 
 import "../styles/tag.css"
 import { Link } from "gatsby"
 
-function Tag({ tag }) {
-  const [hover, setHover] = useState(false);
+function Tag({ tag, count }) {
+  const [hover, setHover] = useState(false)
 
-  const hoverOn = () => { setHover(true) }
-  const hoverOff = () => { setHover(false) }
+  const hoverOn = () => {
+    setHover(true)
+  }
+  const hoverOff = () => {
+    setHover(false)
+  }
 
   return (
     <div
       style={{
         cursor: `pointer`,
         padding: `5px 10px`,
-        border: `1px dashed black`
+        border: `1px dashed black`,
       }}
       className={hover ? `tag-hovered` : ``}
       onMouseEnter={hoverOn}
@@ -25,11 +30,10 @@ function Tag({ tag }) {
           boxShadow: `none`,
           textDecoration: `none`,
           color: `inherit`,
-          
         }}
-        to={`/tags/${tag}`}
+        to={`/tags/${kebabCase(tag)}`}
       >
-      {tag}
+        {tag} {count ? `(${count})` : ``}
       </Link>
     </div>
   )
