@@ -97,7 +97,7 @@ module.exports = {
         canonicalBaseUrl: 'https://blog.daudr.me/',
         components: ['amp-form'],
         excludedPaths: ['/404*', '/'],
-        pathIdentifier: '/amp/',
+        pathIdentifier: 'amp/',
         relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
         useAmpClientIdApi: true,
       },
