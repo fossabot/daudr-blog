@@ -20,6 +20,7 @@ function Tag({ tag, count }) {
         cursor: `pointer`,
         padding: `5px 10px`,
         border: `1px dashed black`,
+        margin: `5px`
       }}
       className={hover ? `tag-hovered` : ``}
       onMouseEnter={hoverOn}
