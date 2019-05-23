@@ -50,6 +50,16 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
 
+      createPage({
+        path: `${post.node.fields.slug}/amp`,
+        component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+
       // Tag pages:
       let tags = []
       // Iterate through each post, putting all found tags into `tags`
