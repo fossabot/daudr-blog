@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const ampBlogPost = path.resolve(`./src/templates/blog-post.amp.js`);
   const tagTemplate = path.resolve(`./src/templates/tags.js`)
   return graphql(
     `
@@ -43,6 +44,16 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: post.node.fields.slug,
         component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+
+      createPage({
+        path: `${post.node.fields.slug}amp`,
+        component: ampBlogPost,
         context: {
           slug: post.node.fields.slug,
           previous,
