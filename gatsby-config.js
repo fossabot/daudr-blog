@@ -94,11 +94,11 @@ module.exports = {
             },
           },
         },
-        canonicalBaseUrl: 'http://www.example.com/',
+        canonicalBaseUrl: 'https://blog.daudr.me/',
         components: ['amp-form'],
         excludedPaths: ['/404*', '/'],
         pathIdentifier: '/amp/',
-        relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}'
+        relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
         useAmpClientIdApi: true,
       },
     },
