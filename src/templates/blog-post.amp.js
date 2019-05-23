@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Tag from "../components/tag"
 
-class BlogPostTemplate extends React.Component {
+class AMPBlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -88,10 +88,10 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default AMPBlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query AmpBlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

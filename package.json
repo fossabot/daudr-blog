@@ -1,8 +1,8 @@
 {
   "name": "daudr-blog",
   "private": true,
-  "description": "Front end code for Michele Da Rin Fioretto's blog",
-  "version": "0.1.0",
+  "description": "Front end code for Daudr's blog",
+  "version": "1.2.0",
   "author": "Michele Da Rin Fioretto <michele@daudr.me>",
   "bugs": {
     "url": "https://github.com/Daudr/daudr-blog/issues"
@@ -10,6 +10,7 @@
   "dependencies": {
     "gatsby": "^2.3.31",
     "gatsby-image": "^2.0.40",
+    "gatsby-plugin-amp": "^0.2.1",
     "gatsby-plugin-feed": "^2.1.1",
     "gatsby-plugin-google-analytics": "^2.0.18",
     "gatsby-plugin-manifest": "^2.0.29",
@@ -40,7 +41,9 @@
   },
   "homepage": "https://blog.daudr.me",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog",
+    "react"
   ],
   "license": "MIT",
   "main": "n/a",
@@ -54,7 +57,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "deploy": "gatsby build && firebase deploy",
+    "deploy:test": "gatsby build && firebase deploy --only hosting:test",
+    "deploy:prod": "gatsby build && firebase deploy --only hosting:prod",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   }
 }

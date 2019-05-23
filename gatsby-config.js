@@ -78,5 +78,31 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-amp`,
+      options: {
+        analytics: {
+          type: 'gtag',
+          dataCredentials: 'include',
+          config: {
+            vars: {
+              gtag_id: `UA-45433517-6`,
+              config: {
+                'UA-45433517-6': {
+                  page_location: '{{pathname}}'
+                },
+              },
+            },
+          },
+        },
+        canonicalBaseUrl: 'https://blog.daudr.me/',
+        components: ['amp-form'],
+        excludedPaths: ['/404*', '/'],
+        pathIdentifier: 'amp/',
+        relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
+        relCanonicalPattern: `{{canonicalBaseUrl}}{{pathname}}`,
+        useAmpClientIdApi: true,
+      },
+    },
   ],
 }

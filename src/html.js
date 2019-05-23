@@ -9,7 +9,7 @@ export default function HTML(props) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
 
@@ -24,6 +24,8 @@ export default function HTML(props) {
             `,
           }}
         />
+
+        <script type='text/javascript' src="//platform-api.sharethis.com/js/sharethis.js#property=5ce146926340bc001251d5d6&product=inline-share-buttons" async='async'></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
