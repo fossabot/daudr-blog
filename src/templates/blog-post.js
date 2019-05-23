@@ -43,7 +43,8 @@ class BlogPostTemplate extends React.Component {
             display: `flex`,
             flexDirection: `row`,
             justifyContent: `space-evenly`,
-            marginBottom: rhythm(0.5),
+            flexWrap: 'wrap',
+            marginBottom: rhythm(1),
           }}
         >
           {post.frontmatter.tags.map(tag => {
@@ -53,7 +54,7 @@ class BlogPostTemplate extends React.Component {
 
         <div
           className="sharethis-inline-share-buttons"
-          style={{ marginBottom: `1.75rem` }}
+          style={{ marginBottom: rhythm(1) }}
         />
 
         <Bio />
