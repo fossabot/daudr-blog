@@ -3,7 +3,7 @@ module.exports = {
     title: `Dauðr Blog`,
     author: `Michele Da Rin Fioretto`,
     description: `Dauðr Blog: tecnologia alla portata di tutti`,
-    siteUrl: `https://blog.daudr.me`,
+    siteUrl: process.env.GATSBY_BASE_URL,
     social: {
       twitter: `MicheleDaRin`,
       facebook: `micheledarin`,
@@ -85,7 +85,7 @@ module.exports = {
           dataCredentials: 'include',
           config: {
             vars: {
-              gtag_id: `UA-45433517-6`,
+              gtag_id: process.env.GATSBY_ANALYTICS_ID,
               config: {
                 'UA-45433517-6': {
                   page_location: '{{pathname}}'
@@ -94,7 +94,7 @@ module.exports = {
             },
           },
         },
-        canonicalBaseUrl: 'https://blog.daudr.me/',
+        canonicalBaseUrl: process.env.GATSBY_BASE_URL,
         components: ['amp-form'],
         excludedPaths: ['/404*', '/'],
         pathIdentifier: 'amp/',
@@ -103,5 +103,11 @@ module.exports = {
         useAmpClientIdApi: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: `https://daudr.us20.list-manage.com/subscribe/post?u=7945f6884aef97e0405c765f7&amp;id=f65e0f4e96`
+      }
+    }
   ],
 }
