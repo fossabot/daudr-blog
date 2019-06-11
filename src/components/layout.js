@@ -64,6 +64,8 @@ class Layout extends React.Component {
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Michele Da Rin Fioretto - Dauðr
+          <br />
+          <a rel="noopener noreferrer" target="_blank" href="https://www.iubenda.com/privacy-policy/49067529" title="Privacy Policy ">Privacy Policy</a>
         </footer>
       </div>
     )
