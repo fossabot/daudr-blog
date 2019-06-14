@@ -54,12 +54,19 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "NODE_ENV=development && gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "deploy:test": "gatsby build && firebase deploy --only hosting:test",
     "deploy:prod": "gatsby build && firebase deploy --only hosting:prod",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.2"
+    },
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }
