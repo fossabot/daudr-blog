@@ -16,6 +16,7 @@ function Bio() {
             style={{
               display: `flex`,
               marginTop: rhythm(2.5),
+              marginBottom: rhythm(1 / 2)
             }}
           >
             <Image
@@ -31,7 +32,7 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
+            <div>
               Written by <strong>{author}</strong> a freelance web developer
               that works in Italy and in the world.
               <br />
@@ -68,6 +69,7 @@ function Bio() {
 
                 return (
                   <a
+                    key={`social-${social.social}`}
                     href={social.link}
                     rel="noopener noreferrer"
                     target="_blank"
@@ -88,7 +90,7 @@ function Bio() {
                   </a>
                 )
               })}
-            </p>
+            </div>
           </div>
         )
       }}
