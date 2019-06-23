@@ -60,6 +60,12 @@ class BlogPostTemplate extends React.Component {
 
         <Bio />
 
+        <Disqus
+          identifier={slug}
+          title={post.frontmatter.title}
+          url={slug}>
+        </Disqus>
+
         <ul
           style={{
             display: `flex`,
@@ -84,12 +90,6 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-
-        <Disqus
-          identifier={slug}
-          title={post.frontmatter.title}
-          url={slug}>
-        </Disqus>
       </Layout>
     )
   }
