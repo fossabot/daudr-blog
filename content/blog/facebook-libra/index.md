@@ -5,6 +5,7 @@ tags: ['facebook', 'libra', 'blockchain', 'stablecoin', 'cryptocurrency']
 keywords: ['facebook', 'libra', 'blockchain', 'stablecoin', 'cryptocurrency']
 image: 'performance.jpg'
 date: "2019-06-19T09:27:10.759Z"
+id: "facebook-libra"
 ---
 
 Recently Mark Zuckerberg has announced Facebook's new cryptocurrency called Libra, let's see what it is.
