@@ -120,5 +120,11 @@ module.exports = {
         useAmpClientIdApi: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `daudr-blog`
+      }
+    },
   ],
 }
