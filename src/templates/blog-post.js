@@ -61,7 +61,7 @@ class BlogPostTemplate extends React.Component {
         <Bio />
 
         <Disqus
-          identifier={slug}
+          identifier={post.frontmatter.id}
           title={post.frontmatter.title}
           url={slug}>
         </Disqus>

@@ -23,6 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                id
               }
             }
           }
