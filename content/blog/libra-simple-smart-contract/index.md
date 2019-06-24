@@ -1,7 +1,7 @@
 ---
 title: "Write your first transaction on the Libra Network"
 description: After the release of the Libra Network's testnet, we'll understand how to write simple transactions on it
-tags: ['facebook', 'libra', 'blockchain', 'cryptocurrency', 'code', guide']
+tags: ['facebook', 'libra', 'blockchain', 'cryptocurrency', 'code', 'guide']
 keywords: ['facebook', 'libra', 'blockchain', 'cryptocurrency', 'code', 'guide']
 image: 'libra-logo.jpg'
 date: "2019-06-24T09:27:10.759Z"
