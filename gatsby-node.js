@@ -52,7 +52,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
 
       createPage({
-        path: `${post.node.fields.slug}amp`,
+        path: `${post.node.fields.slug}amp/`,
         component: ampBlogPost,
         context: {
           slug: post.node.fields.slug,
