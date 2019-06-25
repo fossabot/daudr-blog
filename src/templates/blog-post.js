@@ -12,7 +12,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { slug, previous, next } = this.props.pageContext
+    const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -60,12 +60,6 @@ class BlogPostTemplate extends React.Component {
 
         <Bio />
 
-        <Disqus
-          identifier={post.frontmatter.id}
-          title={post.frontmatter.title}
-          url={slug}>
-        </Disqus>
-
         <ul
           style={{
             display: `flex`,
@@ -90,6 +84,12 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+
+        <Disqus
+          identifier={post.frontmatter.id}
+          title={post.frontmatter.title}
+          url={this.props.location.href}>
+        </Disqus>
       </Layout>
     )
   }
