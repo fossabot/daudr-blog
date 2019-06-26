@@ -19,6 +19,8 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
           keywords={post.frontmatter.keywords}
+          post={post}
+          postSEO
         />
         <h1>{post.frontmatter.title}</h1>
         <p

@@ -4,6 +4,7 @@ module.exports = {
     author: `Michele Da Rin Fioretto`,
     description: `Dauðr Blog: tecnologia alla portata di tutti`,
     siteUrl: `https://blog.daudr.me`,
+    twitterUserName: 'MicheleDaRin',
     social: [
       {
         social: `Facebook`,
