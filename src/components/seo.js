@@ -1,10 +1,3 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
@@ -18,6 +11,7 @@ function SEO({
   title,
   postSEO = false,
   post = null,
+  slug = null,
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -81,10 +75,12 @@ function SEO({
   ]
 
   if (postSEO) {
+    console.log(post);
+    console.log(site);
     schemaOrgJSONLD.push({
       "@type": "BlogPosting",
-      image: "http://example.com/images/image.jpg",
-      url: `${site.siteMetadata.siteurl}${post.slug}`,
+      image: "http://blog.daudr.me/daudr-icon.png",
+      url: `${site.siteMetadata.siteUrl}${slug}`,
       headline: post.frontmatter.title,
       alternativeHeadline: post.frontmatter.title,
       dateCreated: post.frontmatter.date,
