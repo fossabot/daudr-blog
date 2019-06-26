@@ -111,7 +111,6 @@ class BlogPostTemplate extends React.Component {
               label="Email"
               margin="normal"
               variant="outlined"
-              className={classes.textField}
               value={this.state.email}
               onChange={this.handleChange}
             />
