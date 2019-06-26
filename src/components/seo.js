@@ -30,7 +30,7 @@ function SEO({
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const image = `https://blog.daudr.me/daudr-icon.png`
+  const image = post.frontmatter.cover_image || `https://blog.daudr.me/daudr-icon.png`
 
   const mainUrl = `https://www.daudr.me`
 
