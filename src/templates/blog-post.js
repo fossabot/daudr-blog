@@ -10,6 +10,8 @@ import ShareButtons from "../components/share-buttons"
 import Disqus from "gatsby-plugin-disqus"
 
 import addToMailchimp from "gatsby-plugin-mailchimp"
+import TextField from "@material-ui/core/TextField"
+import Button from "@material-ui/core/Button"
 
 class BlogPostTemplate extends React.Component {
   constructor(props) {
@@ -24,12 +26,12 @@ class BlogPostTemplate extends React.Component {
     })
   }
 
-  addMail = event => {
+  handleClick = event => {
     event.preventDefault()
     addToMailchimp(this.state.email).then(data => {
       this.setState({
         email: "",
-        data
+        data,
       })
     })
   }
@@ -68,20 +70,6 @@ class BlogPostTemplate extends React.Component {
           }}
         />
 
-        <div style={{ margin: rhythm(1), textAlign: `center` }}>
-          <p>Vuoi rimanere sempre aggiornato sui contenuti di questo blog?</p>
-          <p>Iscriviti alla newsletter! <span role="img" aria-label="sunglasses smile">😎</span></p>
-          <form onSubmit={this.addMail}>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <input type="submit" />
-          </form>
-        </div>
-
         <div
           style={{
             display: `flex`,
@@ -97,6 +85,46 @@ class BlogPostTemplate extends React.Component {
         </div>
 
         <ShareButtons postNode={post} url={`${siteUrl}${slug}`} />
+
+        <div style={{ margin: rhythm(1), textAlign: `center` }}>
+          <p style={{ marginBottom: 0 }}>
+            Do you want to be updated when new articles are being published?
+          </p>
+          <p style={{ marginBottom: rhythm(1 / 2) }}>
+            Join the newsletter!{" "}
+            <span role="img" aria-label="sunglasses smile">
+              😎
+            </span>
+          </p>
+          <form
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              alignItems: `baseline`,
+              justifyContent: `center`,
+            }}
+            onSubmit={this.addMail}
+          >
+            <TextField
+              id="email"
+              name="email"
+              label="Email"
+              margin="normal"
+              variant="outlined"
+              className={classes.textField}
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <Button
+              onClick={this.handleClick}
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: rhythm(1 / 2), height: `56px` }}
+            >
+              Add me!
+            </Button>
+          </form>
+        </div>
 
         <Bio />
 
@@ -128,8 +156,8 @@ class BlogPostTemplate extends React.Component {
         <Disqus
           identifier={post.frontmatter.id}
           title={post.frontmatter.title}
-          url={this.props.location.href}>
-        </Disqus>
+          url={this.props.location.href}
+        ></Disqus>
       </Layout>
     )
   }
