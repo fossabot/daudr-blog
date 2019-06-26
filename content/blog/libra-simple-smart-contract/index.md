@@ -160,10 +160,10 @@ Minting and adding coins to accounts on `testnet` is done via `faucet`. `Faucet`
 
 To mint Libra and add to the first account, enter this command:
 
-`libra% account mint 0 125`
+`libra% account mint 0 100`
 
 - 0 is the index of the account.
-- 125 is the amount of Libra to be added to the account.
+- 100 is the amount of Libra to be added to the account.
 
 A successful `account mint` command will also create the account on the `blockchain`.
 
