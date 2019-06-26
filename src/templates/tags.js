@@ -1,12 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-// Components
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 
 import { rhythm } from "../utils/typography"
-import Bio from "../components/bio";
+import Bio from "../components/bio"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -18,31 +17,31 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout title={siteTitle} location={`/tags/${tag}`}>
-      <h1>{tagHeader}</h1>
+      <h2>{tagHeader}</h2>
       {edges.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
-      
-      <div style={{ marginBottom: rhythm(2.5), }}>
+        const title = node.frontmatter.title || node.fields.slug
+        return (
+          <div key={node.fields.slug}>
+            <h3
+              style={{
+                marginBottom: rhythm(1 / 4),
+              }}
+            >
+              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                {title}
+              </Link>
+            </h3>
+            <small>{node.frontmatter.date}</small>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: node.frontmatter.description || node.excerpt,
+              }}
+            />
+          </div>
+        )
+      })}
+
+      <div style={{ marginBottom: rhythm(2.5) }}>
         <Link to="/tags">All tags</Link>
       </div>
 

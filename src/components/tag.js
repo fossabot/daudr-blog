@@ -15,28 +15,28 @@ function Tag({ tag, count }) {
   }
 
   return (
-    <div
+    <Link
       style={{
-        cursor: `pointer`,
-        padding: `5px 10px`,
-        border: `1px dashed black`,
-        margin: `5px`
+        boxShadow: `none`,
+        textDecoration: `none`,
+        color: `inherit`,
       }}
-      className={hover ? `tag-hovered` : ``}
-      onMouseEnter={hoverOn}
-      onMouseLeave={hoverOff}
+      to={`/tags/${kebabCase(tag)}`}
     >
-      <Link
+      <div
         style={{
-          boxShadow: `none`,
-          textDecoration: `none`,
-          color: `inherit`,
+          cursor: `pointer`,
+          padding: `5px 10px`,
+          border: `1px dashed black`,
+          margin: `5px`,
         }}
-        to={`/tags/${kebabCase(tag)}`}
+        className={hover ? `tag-hovered` : ``}
+        onMouseEnter={hoverOn}
+        onMouseLeave={hoverOff}
       >
         {tag} {count ? `(${count})` : ``}
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
 
