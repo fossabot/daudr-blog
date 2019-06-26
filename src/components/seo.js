@@ -75,8 +75,6 @@ function SEO({
   ]
 
   if (postSEO) {
-    console.log(post);
-    console.log(site);
     schemaOrgJSONLD.push({
       "@type": "BlogPosting",
       image: "http://blog.daudr.me/daudr-icon.png",
