@@ -15,7 +15,7 @@ function Bio() {
           <div
             style={{
               display: `flex`,
-              marginTop: rhythm(2.5),
+              marginTop: rhythm(1.25),
               marginBottom: rhythm(1 / 2)
             }}
           >
