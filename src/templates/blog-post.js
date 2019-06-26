@@ -6,12 +6,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Tag from "../components/tag"
+import ShareButtons from "../components/share-buttons"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    const { slug, previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -43,14 +45,16 @@ class BlogPostTemplate extends React.Component {
             display: `flex`,
             flexDirection: `row`,
             justifyContent: `space-evenly`,
-            flexWrap: 'wrap',
+            flexWrap: "wrap",
             marginBottom: rhythm(1),
           }}
         >
           {post.frontmatter.tags.map(tag => {
-            return <Tag tag={tag} key={tag}/>
+            return <Tag tag={tag} key={tag} />
           })}
         </div>
+
+        <ShareButtons postNode={post} url={`${siteUrl}${slug}`} />
 
         <Bio />
 
@@ -91,6 +95,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

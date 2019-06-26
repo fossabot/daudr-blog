@@ -1,7 +1,29 @@
-function ShareButtons({}) {
+import React from "react"
+import {
+  RedditShareButton,
+  RedditIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  EmailShareButton,
+  EmailIcon,
+} from "react-share"
+
+import "../styles/share-buttons.css"
+
+function ShareButtons({ postNode, url }) {
+  const iconSize = 30
+  const post = postNode.frontmatter
+
   return (
     <div className="social-links">
-      <p>Share</p>
+      <p>Share this post</p>
+      <br />
       <RedditShareButton url={url} title={post.title}>
         <RedditIcon round size={iconSize} />
       </RedditShareButton>
@@ -21,6 +43,9 @@ function ShareButtons({}) {
       <TelegramShareButton url={url}>
         <TelegramIcon round size={iconSize} />
       </TelegramShareButton>
+      <EmailShareButton url={url}>
+        <EmailIcon round size={iconSize} />
+      </EmailShareButton>
     </div>
   )
 }
