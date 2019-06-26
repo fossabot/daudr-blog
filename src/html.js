@@ -13,7 +13,10 @@ export default function HTML(props) {
         />
         {props.headComponents}
 
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script
+          async
+          src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -24,8 +27,6 @@ export default function HTML(props) {
             `,
           }}
         />
-
-        <script type='text/javascript' src="//platform-api.sharethis.com/js/sharethis.js#property=5ce146926340bc001251d5d6&product=inline-share-buttons" async='async'></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

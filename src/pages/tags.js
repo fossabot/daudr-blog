@@ -15,10 +15,10 @@ const TagsPage = ({
     },
   },
 }) => (
-  <Layout location="/tags" title="Tutti i tag">
+  <Layout location="/tags" title={title}>
     <SEO
-      title="Tutti i tag"
-      keywords={["blog", "tags", "page", "technology"]}
+      title={title}
+      keywords={["blog", "tags", "page", "technology"].concat(group.map(g => g.fieldValue))}
     />
     <div>
       <h1>Tags</h1>
