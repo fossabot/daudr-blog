@@ -1,0 +1,21 @@
+.social-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.social-links > div {
+  margin: 5px 15px;
+  cursor: pointer;
+}
+
+.social-links > p {
+  width: 100%;
+  text-align: center;
+  color: lightgray;
+  margin-bottom: 0.5rem;
+}
