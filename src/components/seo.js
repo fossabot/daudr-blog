@@ -30,7 +30,7 @@ function SEO({
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const image = post.frontmatter.cover_image || `https://blog.daudr.me/daudr-icon.png`
+  let image = `https://blog.daudr.me/daudr-icon.png`
 
   const mainUrl = `https://www.daudr.me`
 
@@ -75,9 +75,10 @@ function SEO({
   ]
 
   if (postSEO) {
+    image = post.frontmatter.cover_image
     schemaOrgJSONLD.push({
       "@type": "BlogPosting",
-      image: "http://blog.daudr.me/daudr-icon.png",
+      image: image,
       url: `${site.siteMetadata.siteUrl}${slug}`,
       headline: post.frontmatter.title,
       alternativeHeadline: post.frontmatter.title,
