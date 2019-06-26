@@ -4,7 +4,7 @@ module.exports = {
     author: `Michele Da Rin Fioretto`,
     description: `Dauðr Blog: tecnologia alla portata di tutti`,
     siteUrl: `https://blog.daudr.me`,
-    twitterUserName: 'MicheleDaRin',
+    twitterUserName: "MicheleDaRin",
     social: [
       {
         social: `Facebook`,
@@ -172,6 +172,12 @@ module.exports = {
             match: "^/blog/",
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `daudr-blog`,
       },
     },
   ],

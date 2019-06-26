@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Tag from "../components/tag"
 import ShareButtons from "../components/share-buttons"
+import Disqus from "gatsby-plugin-disqus"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -85,6 +86,12 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+
+        <Disqus
+          identifier={post.frontmatter.id}
+          title={post.frontmatter.title}
+          url={this.props.location.href}>
+        </Disqus>
       </Layout>
     )
   }

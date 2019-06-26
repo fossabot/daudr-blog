@@ -5,6 +5,7 @@ tags: ['angular', 'v7', 'v8', 'conditional polyfills', 'performance', 'cli']
 keywords: ['angular', 'v7', 'v8', 'conditional polyfills', 'performance', 'cli']
 cover_image: 'https://unsplash.com/photos/JhqhGfX_Wd8'
 date: "2019-05-18T09:27:10.759Z"
+id: "conditional-polyfills"
 ---
 
 If you have a project that's based on Angular v7 and don't have the chance to upgrade to the upcoming v8 or you want to test one of the most useful small features of the future version here you will find how to do it.
