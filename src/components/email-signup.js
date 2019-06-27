@@ -6,7 +6,7 @@ import { rhythm } from "../utils/typography"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
 function EmailSignup() {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState("")
   const [data, setData] = useState({})
 
   const handleClick = event => {
