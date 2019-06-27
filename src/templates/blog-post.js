@@ -8,34 +8,9 @@ import { rhythm, scale } from "../utils/typography"
 import Tag from "../components/tag"
 import ShareButtons from "../components/share-buttons"
 import Disqus from "gatsby-plugin-disqus"
-
-import addToMailchimp from "gatsby-plugin-mailchimp"
-import TextField from "@material-ui/core/TextField"
-import Button from "@material-ui/core/Button"
+import EmailSignup from "../components/email-signup"
 
 class BlogPostTemplate extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { email: "", data: {} }
-  }
-
-  handleChange = event => {
-    this.setState({
-      ...this.state,
-      email: event.target.value,
-    })
-  }
-
-  handleClick = event => {
-    event.preventDefault()
-    addToMailchimp(this.state.email).then(data => {
-      this.setState({
-        email: "",
-        data,
-      })
-    })
-  }
-
   render() {
     const post = this.props.data.markdownRemark
     const siteUrl = this.props.data.site.siteMetadata.siteUrl
@@ -86,44 +61,7 @@ class BlogPostTemplate extends React.Component {
 
         <ShareButtons postNode={post} url={`${siteUrl}${slug}`} />
 
-        <div style={{ margin: rhythm(1), textAlign: `center` }}>
-          <p style={{ marginBottom: 0 }}>
-            Do you want to be updated when new articles are being published?
-          </p>
-          <p style={{ marginBottom: rhythm(1 / 2) }}>
-            Join the newsletter!{" "}
-            <span role="img" aria-label="sunglasses smile">
-              😎
-            </span>
-          </p>
-          <form
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              alignItems: `baseline`,
-              justifyContent: `center`,
-            }}
-            onSubmit={this.addMail}
-          >
-            <TextField
-              id="email"
-              name="email"
-              label="Email"
-              margin="normal"
-              variant="outlined"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <Button
-              onClick={this.handleClick}
-              variant="outlined"
-              color="primary"
-              style={{ marginLeft: rhythm(1 / 2), height: `56px` }}
-            >
-              Add me!
-            </Button>
-          </form>
-        </div>
+        <EmailSignup />
 
         <Bio />
 
