@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { rhythm } from "../utils/typography"
@@ -8,6 +10,7 @@ import addToMailchimp from "gatsby-plugin-mailchimp"
 function EmailSignup() {
   const [email, setEmail] = useState("")
   const [data, setData] = useState({})
+  const [invalidEmail, setInvalidEmail] = useState(false);
 
   const handleClick = event => {
     event.preventDefault()
@@ -15,6 +18,13 @@ function EmailSignup() {
       setEmail("")
       setData(data)
     })
+  }
+
+  const checkMail = email => {
+    const regexp = /\S+@\S+\.\S+/;
+    const test = regexp.test(email);
+    setInvalidEmail(!test);
+    setEmail(email);
   }
 
   let emailText = ""
@@ -44,21 +54,24 @@ function EmailSignup() {
           justifyContent: `center`,
         }}
       >
-        <TextField
-          id="email"
-          name="email"
-          label="Email"
-          margin="normal"
-          variant="outlined"
-          helperText={emailText}
-          value={email}
-          onChange={event => setEmail(event.target.value)}
-        />
+        <FormControl error={invalidEmail}>
+          <TextField
+            id="email"
+            name="email"
+            label="Email"
+            margin="normal"
+            variant="outlined"
+            helperText={emailText}
+            value={email}
+            onChange={event => checkMail(event.target.value)}
+          />
+          <FormHelperText data-cy="error-text" hidden={!invalidEmail}>Invalid email</FormHelperText>
+        </FormControl>
         <Button
           onClick={handleClick}
           variant="outlined"
           color="primary"
-          disabled={email === ""}
+          disabled={email === "" || invalidEmail}
           style={{ marginLeft: rhythm(1 / 2), height: `56px` }}
         >
           Add me!
