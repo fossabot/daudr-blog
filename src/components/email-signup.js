@@ -11,12 +11,19 @@ function EmailSignup() {
   const [email, setEmail] = useState("")
   const [data, setData] = useState({})
   const [invalidEmail, setInvalidEmail] = useState(false);
+  const [emailText, setEmailText] = useState('');
 
   const handleClick = event => {
     event.preventDefault()
     addToMailchimp(email).then(data => {
       setEmail("")
       setData(data)
+
+      if (data.result === `success`) {
+        setEmailText(`Signed in succefully!`)
+      } else {
+        setEmailText(`Some error occurred whilst signing you up, please retry`)
+      }
     })
   }
 
@@ -25,14 +32,10 @@ function EmailSignup() {
     const test = regexp.test(email);
     setInvalidEmail(!test);
     setEmail(email);
-  }
 
-  let emailText = ""
-
-  if (data.result === `success`) {
-    emailText = `Signed in successfully!`
-  } else if (data.result === `error`) {
-    emailText = `Some error occurred whilst signing you up, please retry`
+    if (data) {
+      setEmailText(``)
+    }
   }
 
   return (
