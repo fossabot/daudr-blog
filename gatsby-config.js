@@ -4,14 +4,32 @@ module.exports = {
     author: `Michele Da Rin Fioretto`,
     description: `Dauðr Blog: tecnologia alla portata di tutti`,
     siteUrl: `https://blog.daudr.me`,
-    social: {
-      twitter: `MicheleDaRin`,
-      facebook: `micheledarin`,
-      instagra: `micheleedarin`,
-      github: `Daudr`
-    },
+    twitterUserName: "MicheleDaRin",
+    social: [
+      {
+        social: `Facebook`,
+        link: `https://www.facebook.com/micheleedarin`,
+      },
+      {
+        social: `LinkedIn`,
+        link: `https://www.linkedin.com/in/micheleedarin`,
+      },
+      {
+        social: `Github`,
+        link: `https://www.github.com/Daudr`,
+      },
+      {
+        social: `Instagram`,
+        link: `https://www.instagram.com/micheleedarin`,
+      },
+      {
+        social: `Twitter`,
+        link: `https://www.twitter.com/MicheleDaRin`,
+      },
+    ],
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,7 +74,6 @@ module.exports = {
         trackingId: `UA-45433517-6`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -75,6 +92,92 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-amp`,
+      options: {
+        analytics: {
+          type: "gtag",
+          dataCredentials: "include",
+          config: {
+            vars: {
+              gtag_id: `UA-45433517-6`,
+              config: {
+                "UA-45433517-6": {
+                  page_location: "{{pathname}}",
+                },
+              },
+            },
+          },
+        },
+        canonicalBaseUrl: "https://blog.daudr.me/",
+        components: ["amp-form", "amp-ad", "amp-auto-ads"],
+        excludedPaths: ["/404*", "/"],
+        pathIdentifier: "amp/",
+        relAmpHtmlPattern: "{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}",
+        relCanonicalPattern: `{{canonicalBaseUrl}}{{pathname}}`,
+        useAmpClientIdApi: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Daudr Blog's RSS",
+            match: "^/blog/",
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `daudr-blog`,
       },
     },
   ],

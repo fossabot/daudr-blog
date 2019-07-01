@@ -1,24 +1,28 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  postSEO = false,
+  post = null,
+  slug = null,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
+            siteUrl
             description
             author
+            twitterUserName
           }
         }
       }
@@ -26,6 +30,65 @@ function SEO({ description, lang, meta, keywords, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  let image = `https://blog.daudr.me/daudr-icon.png`
+
+  const mainUrl = `https://www.daudr.me`
+
+  const schemaOrgJSONLD = [
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      url: `https://blog.daudr.me/`,
+      name: site.siteMetadata.title,
+      alternateName: site.siteMetadata.title,
+      contentLocation: {
+        "@type": "Place",
+        name: "Bologna, Italia",
+      },
+      accountablePerson: {
+        "@type": "Person",
+        name: site.siteMetadata.author,
+        url: mainUrl,
+      },
+      author: {
+        "@type": "Person",
+        name: site.siteMetadata.author,
+        url: mainUrl,
+      },
+      creator: {
+        "@type": "Person",
+        name: site.siteMetadata.author,
+        url: mainUrl,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: site.siteMetadata.author,
+        url: mainUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: "https://blog.daudr.me/daudr-icon.png",
+          width: "400",
+          height: "55",
+        },
+      },
+    },
+  ]
+
+  if (postSEO) {
+    image = post.frontmatter.cover_image
+    schemaOrgJSONLD.push({
+      "@type": "BlogPosting",
+      image: image,
+      url: `${site.siteMetadata.siteUrl}${slug}`,
+      headline: post.frontmatter.title,
+      alternativeHeadline: post.frontmatter.title,
+      dateCreated: post.frontmatter.date,
+      datePublished: post.frontmatter.date,
+      mainEntityOfPage: "True",
+      keywords: post.frontmatter.keywords,
+      articleBody: post.html,
+    })
+  }
 
   return (
     <Helmet
@@ -37,7 +100,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: `${metaDescription} by Dauðr`,
         },
         {
           property: `og:title`,
@@ -57,7 +120,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.twitterUserName,
         },
         {
           name: `twitter:title`,
@@ -66,6 +129,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `og:image`,
+          content: image,
         },
       ]
         .concat(
@@ -77,7 +144,11 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
+    </Helmet>
   )
 }
 
