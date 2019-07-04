@@ -10,7 +10,7 @@ id: "ngfor-done-right"
 
 When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know hot use it right.
 
-![article logo](ngfor.jpg)
+![Arrive first with ngFor](ngfor.png)
 > Photo by [Kolleen Gladden](https://unsplash.com/photos/ij5_qCBpIVY) on [Unsplash](https://unsplash.com)
 
 All the informations on this article can also be found in the official [docs](https://angular.io/api/common/NgForOf)
