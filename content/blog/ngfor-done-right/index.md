@@ -3,21 +3,21 @@ title: "ngFor Done Right"
 description: When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know hot use it right
 tags: ["angular", "code", "guide", "frontend", "performance"]
 keywords: ["angular", "code", "guide", "frontend", "performance"]
-cover_image: "https://unsplash.com/photos/ij5_qCBpIVY"
-date: "2019-06-24T09:27:10.759Z"
+cover_image: https://images.unsplash.com/photo-1489976908522-aabacf277f49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80
+date: "2019-07-04T09:27:10.759Z"
 id: "ngfor-done-right"
 ---
 
-When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know hot use it right.
+When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know how to use it right.
 
-![article logo](ngfor.jpg)
+![Arrive first with ngFor](ngfor.png)
 > Photo by [Kolleen Gladden](https://unsplash.com/photos/ij5_qCBpIVY) on [Unsplash](https://unsplash.com)
 
-All the informations on this article can also be found in the official [docs](https://angular.io/api/common/NgForOf)
+All the information on this article can also be found in the official [docs](https://angular.io/api/common/NgForOf)
 
 ## Prerequisites
 
-During this guide we will use an interface that represents our lists' object, let's call it `Item`, that'll look something like this:
+During this guide, we will use an interface that represents our lists' object, let's call it `Item`, that'll look something like this:
 
 ```typescript
 export interface Item {
@@ -67,7 +67,7 @@ export const itemsLong: Item[] = [
 
 ## First of all trackBy
 
-`trackBy` is a function that defines how to track changes for items in the iterable. That means that we can use it to know exactly which element in a list are being changed, after a network call or whatsoever.
+`trackBy` is a function that defines how to track changes for items in the iterable. That means that we can use it to know exactly which element in a list is being changed, after a network call or whatsoever.
 We implement it by defining a function in our `.ts` file:
 
 ```typescript
