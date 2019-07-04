@@ -11,14 +11,13 @@ id: "ngfor-done-right"
 When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know hot use it right.
 
 ![article logo](ngfor.jpg)
-
 > Photo by [Kolleen Gladden](https://unsplash.com/photos/ij5_qCBpIVY) on [Unsplash](https://unsplash.com)
 
-All the informations on this article can also be found in the [docs](https://angular.io/api/common/NgForOf)
+All the informations on this article can also be found in the official [docs](https://angular.io/api/common/NgForOf)
 
 ## Prerequisites
 
-During this guide we will use an interface, let's call it `Item` that'll look something like this:
+During this guide we will use an interface that represents our lists' object, let's call it `Item`, that'll look something like this:
 
 ```typescript
 export interface Item {
@@ -83,10 +82,14 @@ then in your `.html` add your new function
 <div *ngFor="let item of items; trackBy: trackByFunction"></div>
 ```
 
+Doing this lets your app be more performant as it doesn't need to reload all of your view but only the element that's being changed.
+
 ## even and odd comes next
 
 The variables `even` and `odd` are mainly used for styling the components.
-For example when we have a table and we want to make it more readable we can use this varibles to change the background color of the rows.
+For example, when we have a table and we want to make it more readable we can use these variables to change the background color of the rows.
+
+In your `html`
 
 ```html
 <table>
@@ -108,6 +111,8 @@ For example when we have a table and we want to make it more readable we can use
 </table>
 ```
 
+And in your `css`/`scss` file
+
 ```scss
 .odd {
   background-color: rgba(255, 0, 255, 0.45);
@@ -117,6 +122,9 @@ For example when we have a table and we want to make it more readable we can use
   background-color: rgba(0, 0, 0, 0.45);
 }
 ```
+
+The result will be something like
+![Even and odd example](even-odd.png)
 
 ## Tell me about first and last
 
@@ -153,6 +161,20 @@ Let's use the already created table and set the classes only for the first and l
 }
 ```
 
+That'll look like this
+![First and last example](first-last.png)
+
 ## Don't forget the index
+
+The `index` property does exactly what you think it does, it tells the index of the element in a list.
+Maybe it's the property that's being used the most when we are dealing with lists, just think if you want to lay your lists' element in defined rows using `css`.
+
+```html
+<mat-list>
+  <mat-list-item *ngFor="let item of items; trackBy: trackByFunction; index as index">{{ item.name }} index is {{ index }}</mat-list-item>
+</mat-list>
+```
+
+![Index example](index.png)
 
 All the code used in this guide can be found on [Stackblitz](https://stackblitz.com/edit/ngfor-done-right) and [GitHub](https://github.com/Daudr/ngfor-done-right)
