@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+import CookieConsent from "react-cookie-consent"
 
 class Layout extends React.Component {
   render() {
@@ -70,16 +71,17 @@ class Layout extends React.Component {
             title="Privacy Policy"
             style={{
               boxShadow: `none`,
-              color: `currentColor`
+              color: `currentColor`,
             }}
           >
             Privacy Policy
           </a>
-
-          <br/>
-
-          © {new Date().getFullYear()}, Michele Da Rin Fioretto - Dauðr
+          <br />© {new Date().getFullYear()}, Michele Da Rin Fioretto - Dauðr
         </footer>
+
+        <CookieConsent>
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
       </div>
     )
   }
