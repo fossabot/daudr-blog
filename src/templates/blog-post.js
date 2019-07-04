@@ -8,6 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 import Tag from "../components/tag"
 import ShareButtons from "../components/share-buttons"
 import Disqus from "gatsby-plugin-disqus"
+import EmailSignup from "../components/email-signup"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -60,6 +61,8 @@ class BlogPostTemplate extends React.Component {
 
         <ShareButtons postNode={post} url={`${siteUrl}${slug}`} />
 
+        <EmailSignup />
+
         <Bio />
 
         <ul
@@ -90,8 +93,8 @@ class BlogPostTemplate extends React.Component {
         <Disqus
           identifier={post.frontmatter.id}
           title={post.frontmatter.title}
-          url={this.props.location.href}>
-        </Disqus>
+          url={this.props.location.href}
+        ></Disqus>
       </Layout>
     )
   }

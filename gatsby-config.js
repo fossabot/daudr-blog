@@ -102,7 +102,7 @@ module.exports = {
           dataCredentials: "include",
           config: {
             vars: {
-              gtag_id: `UA-45433517-6`,
+              gtag_id: process.env.GATSBY_ANALYTICS_ID,
               config: {
                 "UA-45433517-6": {
                   page_location: "{{pathname}}",
@@ -119,6 +119,12 @@ module.exports = {
         relCanonicalPattern: `{{canonicalBaseUrl}}{{pathname}}`,
         useAmpClientIdApi: true,
       },
+    },
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: `https://daudr.us20.list-manage.com/subscribe/post?u=7945f6884aef97e0405c765f7&amp;id=f65e0f4e96`
+      }
     },
     {
       resolve: `gatsby-plugin-feed`,
