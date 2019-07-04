@@ -12,6 +12,7 @@ function EmailSignup() {
   const [data, setData] = useState({})
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [emailText, setEmailText] = useState('');
+  const [errorText, setErrorText] = useState(``)
 
   const handleClick = event => {
     event.preventDefault()
@@ -21,8 +22,11 @@ function EmailSignup() {
 
       if (data.result === `success`) {
         setEmailText(`Signed in succefully!`)
+        setErrorText(``)
+        setInvalidEmail(false)
       } else {
-        setEmailText(`Some error occurred whilst signing you up, please retry`)
+        setInvalidEmail(true);
+        setErrorText(`Some error occurred whilst signing you up, please retry`)
       }
     })
   }
@@ -32,6 +36,8 @@ function EmailSignup() {
     const test = regexp.test(email);
     setInvalidEmail(!test);
     setEmail(email);
+
+    setErrorText(test ? ``: `Invalid email`);
 
     if (data) {
       setEmailText(``)
@@ -68,7 +74,7 @@ function EmailSignup() {
             value={email}
             onChange={event => checkMail(event.target.value)}
           />
-          <FormHelperText data-cy="error-text" hidden={!invalidEmail}>Invalid email</FormHelperText>
+          <FormHelperText data-cy="error-text" hidden={!invalidEmail}>{errorText}</FormHelperText>
         </FormControl>
         <Button
           onClick={handleClick}
