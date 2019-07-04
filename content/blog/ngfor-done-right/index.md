@@ -67,7 +67,7 @@ export const itemsLong: Item[] = [
 
 ## First of all trackBy
 
-`trackBy` is a function that defines how to track changes for items in the iterable. That means that we can use it to know exactly which element in a list is being changed, after a network call or whatsoever.
+`trackBy` is a function that defines how to track changes for items in the iterable. That means we can use it to know exactly which element in a list is being changed, after a network call or whatsoever.
 We implement it by defining a function in our `.ts` file:
 
 ```typescript
