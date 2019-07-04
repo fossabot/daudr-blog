@@ -1,8 +1,8 @@
 ---
 title: Conditional Polyfill in Angular v7
 description: How to enable conditional polyfills loading in an Angular v7 project
-tags: ['angular', 'performance', 'cli', 'code, 'guide']
-keywords: ['angular', 'conditional polyfills', 'performance', 'cli', 'code, 'guide']
+tags: ['angular', 'performance', 'cli', 'code', 'guide']
+keywords: ['angular', 'conditional polyfills', 'performance', 'cli', 'code', 'guide']
 cover_image: https://images.unsplash.com/photo-1511715282680-fbf93a50e721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80
 date: "2019-05-18T09:27:10.759Z"
 id: "conditional-polyfills"

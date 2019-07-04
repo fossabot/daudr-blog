@@ -2,7 +2,7 @@
   "name": "daudr-blog",
   "private": true,
   "description": "Front end code for Daudr's blog",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "Michele Da Rin Fioretto <michele@daudr.me>",
   "bugs": {
     "url": "https://github.com/Daudr/daudr-blog/issues"
