@@ -5,12 +5,12 @@ import Disqus from "gatsby-plugin-disqus"
 
 import { rhythm, scale } from "../../utils/typography"
 
-import Bio from "../../components/bio/bio"
-import Layout from "../../components/layout/layout"
-import SEO from "../../components/seo/seo"
-import Tag from "../../components/tag/tag"
-import ShareButtons from "../../components/share-buttons/share-buttons"
-import EmailSignup from "../../components/email-signup/email-signup"
+import Bio from "@components/bio/bio"
+import Layout from "@components/layout/layout"
+import SEO from "@components/seo/seo"
+import Tag from "@components/tag/tag"
+import ShareButtons from "@components/share-buttons/share-buttons"
+import EmailSignup from "@components/email-signup/email-signup"
 
 export const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark

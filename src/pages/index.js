@@ -1,17 +1,17 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../../components/bio/bio"
-import Layout from "../../components/layout/layout"
-import SEO from "../../components/seo/seo"
-import { rhythm } from "../../utils/typography"
+import Bio from "@components/bio/bio"
+import Layout from "@components/layout/layout"
+import SEO from "@components/seo/seo"
+import { rhythm } from "@utils/typography"
 
-export const BlogIndex = ({ data }) => {
+export const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={this.props.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO
         title="Tutti i post"
         keywords={[

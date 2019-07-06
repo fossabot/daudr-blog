@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 
 // Components
 import { graphql } from "gatsby"
-import SEO from "../../components/seo/seo"
-import Layout from "../../components/layout/layout"
-import Tag from "../../components/tag/tag";
+import SEO from "@components/seo/seo"
+import Layout from "@components/layout/layout"
+import Tag from "@components/tag/tag";
 
 export const TagsPage = ({
   data: {
