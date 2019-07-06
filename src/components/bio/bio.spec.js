@@ -4,7 +4,7 @@ import renderer from "react-test-renderer"
 
 import Bio from "./bio"
 
-import data from "../../../__mocks__/bio.mock"
+import { data } from "../../../__mocks__/bio.mock"
 
 beforeEach(() => {
   StaticQuery.mockImplementationOnce(({ render }) => render(data))

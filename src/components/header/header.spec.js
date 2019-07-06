@@ -19,7 +19,7 @@ beforeEach(() => {
 describe("Header", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Header location={{ pathname: `/` }} title={site.siteMetadata.title}/>)
+      .create(<Header location={{ pathname: `/` }} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
