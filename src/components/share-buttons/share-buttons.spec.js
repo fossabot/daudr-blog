@@ -1,7 +1,7 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import ShareButtons from "../share-buttons"
+import ShareButtons from "./share-buttons"
 
 describe("ShareButtons", () => {
   it("renders correctly", () => {

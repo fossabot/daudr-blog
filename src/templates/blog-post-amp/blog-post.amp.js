@@ -100,7 +100,7 @@ export const AMPBlogPostTemplate = ({ data, location, pageContext }) => {
   )
 }
 
-export default BlogPostTemplate
+export default AMPBlogPostTemplate
 
 export const pageQuery = graphql`
   query AMPBlogPostBySlug($slug: String!) {

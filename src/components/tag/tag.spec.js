@@ -1,7 +1,7 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import { Tag } from "../tag"
+import { Tag } from "./tag"
 
 describe("Tag", () => {
   it("renders correctly", () => {

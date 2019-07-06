@@ -1,7 +1,7 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import EmailSignup from "../email-signup"
+import EmailSignup from "./email-signup"
 
 describe("EmailSignup", () => {
   it("renders correctly", () => {

@@ -1,7 +1,7 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import SEO from "../seo"
+import SEO from "./seo"
 
 describe("SEO", () => {
   it("renders correctly", () => {

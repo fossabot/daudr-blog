@@ -7,7 +7,7 @@ import SEO from "../../components/seo/seo"
 import Layout from "../../components/layout/layout"
 import Tag from "../../components/tag/tag";
 
-const TagsPage = ({
+export const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
     site: {
