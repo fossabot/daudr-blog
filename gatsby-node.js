@@ -5,9 +5,9 @@ const _ = require(`lodash`);
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const ampBlogPost = path.resolve(`./src/templates/blog-post.amp.js`);
-  const tagTemplate = path.resolve(`./src/templates/tags.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post/blog-post.js`)
+  const ampBlogPost = path.resolve(`./src/templates/blog-post-amp/blog-post.amp.js`);
+  const tagTemplate = path.resolve(`./src/templates/tags/tags.js`)
   return graphql(
     `
       {
