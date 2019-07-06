@@ -3,10 +3,18 @@ import renderer from "react-test-renderer"
 
 import { AMPBlogPostTemplate } from "./blog-post.amp"
 
-describe("Header", () => {
+import { data, pageContext, location } from "../../../__mocks__/blog-post.mock"
+
+describe("AMPBlogPostTemplate", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Header siteTitle="Default Starter" />)
+      .create(
+        <AMPBlogPostTemplate
+          data={data}
+          pageContext={pageContext}
+          location={location}
+        />
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })

@@ -7,7 +7,7 @@ import { rhythm } from "../../utils/typography"
 import Bio from "../../components/bio/bio"
 import Layout from "../../components/layout/layout"
 
-const Tags = ({ pageContext, data }) => {
+export const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const siteTitle = data.site.siteMetadata.title
