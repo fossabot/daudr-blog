@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 
 import { rhythm } from "../../utils/typography"
 
-function Bio() {
+export const Bio = () => {
   return (
     <StaticQuery
       query={bioQuery}
@@ -16,7 +16,7 @@ function Bio() {
             style={{
               display: `flex`,
               marginTop: rhythm(1.25),
-              marginBottom: rhythm(1 / 2)
+              marginBottom: rhythm(1 / 2),
             }}
           >
             <Image
@@ -39,31 +39,31 @@ function Bio() {
               You can also find him on
               <br />
               {social.map((social, i) => {
-                let fixed;
+                let fixed
 
                 switch (i) {
                   case 0: {
-                    fixed = data.facebook.childImageSharp.fixed;
-                    break;
+                    fixed = data.facebook.childImageSharp.fixed
+                    break
                   }
                   case 1: {
-                    fixed = data.linkedin.childImageSharp.fixed;
-                    break;
+                    fixed = data.linkedin.childImageSharp.fixed
+                    break
                   }
                   case 2: {
-                    fixed = data.github.childImageSharp.fixed;
-                    break;
+                    fixed = data.github.childImageSharp.fixed
+                    break
                   }
                   case 3: {
-                    fixed = data.instagram.childImageSharp.fixed;
-                    break;
+                    fixed = data.instagram.childImageSharp.fixed
+                    break
                   }
                   case 4: {
-                    fixed = data.twitter.childImageSharp.fixed;
-                    break;
+                    fixed = data.twitter.childImageSharp.fixed
+                    break
                   }
                   default: {
-                    break;
+                    break
                   }
                 }
 
@@ -107,35 +107,35 @@ const bioQuery = graphql`
         }
       }
     }
-    facebook: file(absolutePath: { regex: "/facebook.png/"}) {
+    facebook: file(absolutePath: { regex: "/facebook.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    twitter: file(absolutePath: { regex: "/twitter.png/"}) {
+    twitter: file(absolutePath: { regex: "/twitter.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    github: file(absolutePath: { regex: "/github-logo.png/"}) {
+    github: file(absolutePath: { regex: "/github-logo.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    instagram: file(absolutePath: { regex: "/instagram.png/"}) {
+    instagram: file(absolutePath: { regex: "/instagram.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    linkedin: file(absolutePath: { regex: "/linkedin.png/"}) {
+    linkedin: file(absolutePath: { regex: "/linkedin.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed

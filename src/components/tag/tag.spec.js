@@ -1,13 +1,11 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import Layout from "../layout"
+import { Tag } from "../tag"
 
-describe("Layout", () => {
+describe("Tag", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<Layout />)
-      .toJSON()
+    const tree = renderer.create(<Tag />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

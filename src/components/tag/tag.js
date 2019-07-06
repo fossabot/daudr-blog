@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import kebabCase from "lodash/kebabCase"
 import { Link } from "gatsby"
 
-function Tag({ tag, count }) {
+export const Tag = ({ tag, count }) => {
   const [hover, setHover] = useState(false)
 
   const hoverOn = () => {

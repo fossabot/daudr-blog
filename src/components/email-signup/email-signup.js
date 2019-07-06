@@ -7,7 +7,7 @@ import addToMailchimp from "gatsby-plugin-mailchimp"
 
 import { rhythm } from "../../utils/typography"
 
-function EmailSignup() {
+export const EmailSignup = () => {
   const [email, setEmail] = useState("")
   const [data, setData] = useState({})
   const [invalidEmail, setInvalidEmail] = useState(false);

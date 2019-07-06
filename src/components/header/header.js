@@ -3,10 +3,8 @@ import { Link } from "gatsby"
 
 import { scale, rhythm } from "../../utils/typography"
 
-export const Header = props => {
+export const Header = ({ location, title }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  const location = props.location
-  const title = props.title
   let header
 
   if (location.pathname === rootPath) {

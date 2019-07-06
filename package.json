@@ -72,7 +72,7 @@
     "serve": "gatsby serve",
     "deploy:test": "rm -fr public/ && gatsby build && firebase deploy --only hosting:test",
     "deploy:prod": "rm -fr public/ && gatsby build && firebase deploy --only hosting:prod",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "jest"
   },
   "bit": {
     "env": {
