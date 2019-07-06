@@ -1,14 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
-import Tag from "../components/tag"
-import ShareButtons from "../components/share-buttons"
 import Disqus from "gatsby-plugin-disqus"
-import EmailSignup from "../components/email-signup"
+
+import { rhythm, scale } from "../utils/typography"
+
+import Bio from "../components/bio/bio"
+import Layout from "../components/layout/layout"
+import SEO from "../components/seo/seo"
+import Tag from "../components/tag/tag"
+import ShareButtons from "../components/share-buttons/share-buttons"
+import EmailSignup from "../components/email-signup/email-signup"
 
 class BlogPostTemplate extends React.Component {
   render() {

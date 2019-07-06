@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
 
 import { rhythm } from "../utils/typography"
-import Bio from "../components/bio"
+
+import Bio from "../components/bio/bio"
+import Layout from "../components/layout/layout" 
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext

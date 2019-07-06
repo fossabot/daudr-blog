@@ -1,7 +1,5 @@
 import React, { useState } from "react"
 import kebabCase from "lodash/kebabCase"
-
-import "../styles/tag.css"
 import { Link } from "gatsby"
 
 function Tag({ tag, count }) {
@@ -27,7 +25,7 @@ function Tag({ tag, count }) {
         style={{
           cursor: `pointer`,
           padding: `5px 10px`,
-          border: `1px dashed black`,
+          border: hover ? `1px solid black` : `1px dashed black`,
           margin: `5px`,
         }}
         className={hover ? `tag-hovered` : ``}
