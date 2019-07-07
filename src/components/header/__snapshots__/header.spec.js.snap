@@ -21,7 +21,9 @@ exports[`Header renders correctly 1`] = `
           "textDecoration": "none",
         }
       }
-    />
+    >
+      Header Test
+    </a>
   </h1>
 </header>
 `;

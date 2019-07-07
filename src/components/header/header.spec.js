@@ -1,25 +1,14 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import { StaticQuery } from "gatsby"
 
 import { Header } from "./header"
 
-beforeEach(() => {
-  StaticQuery.mockImplementationOnce(({ render }) =>
-    render({
-      site: {
-        siteMetadata: {
-          title: `Default Starter`,
-        },
-      },
-    })
-  )
-})
+import { location } from '../../../__mocks__/location.mock'
 
 describe("Header", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Header location={{ pathname: `/` }} />)
+      .create(<Header location={location} title={`Header Test`} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
