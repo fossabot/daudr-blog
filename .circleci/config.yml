@@ -56,10 +56,12 @@ workflows:
       - deploy-test:
         filters:
           branches:
-          only:
-            - develop
+          only: develop
+        requires:
+          - build
       - deploy-prod:
         filters:
           branches:
-            only:
-              - master
+            only: master
+        requires:
+          - build
