@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import PropTypes from "prop-types"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -98,6 +99,44 @@ class BlogPostTemplate extends React.Component {
       </Layout>
     )
   }
+}
+
+BlogPostTemplate.PropTypes = {
+  pageContext: PropTypes.shape({
+    previous: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    next: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        keywords: PropTypes.array.isRequired,
+      }).isRequired,
+      excerpt: PropTypes.string.isRequired,
+      html: PropTypes.string.isRequired,
+    }).isRequired,
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired
+    }).isRequired,
+  }).isRequired,
 }
 
 export default BlogPostTemplate
