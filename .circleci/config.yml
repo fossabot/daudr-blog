@@ -56,7 +56,7 @@ workflows:
       - deploy-test:
         filters:
           branches:
-          only: develop
+            only: develop
         requires:
           - build
       - deploy-prod:
