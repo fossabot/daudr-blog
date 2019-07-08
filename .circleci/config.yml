@@ -45,13 +45,14 @@ jobs:
 
     steps:     
       - run:
-          name: Firebase Deploy Test
+          name: Firebase Deploy Prod
           command: ./node_modules/.bin/firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN
 
 workflows:
   version: 2
   deploy_test:
-    branches:
+    filters:
+      branches:
       only:
         - develop
     jobs:
@@ -59,9 +60,10 @@ workflows:
       - deploy-test
 
   deploy_prod:
-    branches:
-      only:
-        - master
+    filters:
+      branches:
+        only:
+          - master
     jobs:
       - build
       - deploy-prod
