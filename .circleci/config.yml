@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Gatsby Build
-          command: ./node_modules/.bin/gatsby build
+          command: npm run build
 
   deploy-test:
     working_directory: ~/repo
@@ -41,7 +41,7 @@ jobs:
     steps:     
       - run:
           name: Firebase Deploy Test
-          command: ./node_modules/.bin/firebase deploy --only hosting:test --token=$FIREBASE_TOKEN
+          command: npm run deploy:test:ci
   
   deploy-prod:
     working_directory: ~/repo
@@ -52,7 +52,7 @@ jobs:
     steps:     
       - run:
           name: Firebase Deploy Prod
-          command: ./node_modules/.bin/firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN
+          command: npm run deploy:prod:ci
 
 workflows:
   version: 2
