@@ -35,6 +35,9 @@ jobs:
   deploy-test:
     working_directory: ~/repo
 
+    docker: 
+      - image: circleci/node:8
+
     steps:     
       - run:
           name: Firebase Deploy Test
@@ -42,6 +45,9 @@ jobs:
   
   deploy-prod:
     working_directory: ~/repo
+
+    docker: 
+      - image: circleci/node:8
 
     steps:     
       - run:
