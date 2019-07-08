@@ -54,14 +54,15 @@ workflows:
     jobs:
       - build
       - deploy-test:
+        requires:
+          - build
         filters:
           branches:
             only: develop
+
+      - deploy-prod:
         requires:
           - build
-      - deploy-prod:
         filters:
           branches:
             only: master
-        requires:
-          - build
