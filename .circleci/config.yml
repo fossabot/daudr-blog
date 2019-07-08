@@ -53,12 +53,12 @@ workflows:
   deploy_test_prod:
     jobs:
       - build
-      - deploy-test
+      - deploy-test:
         filters:
           branches:
           only:
             - develop
-      - deploy-prod
+      - deploy-prod:
         filters:
           branches:
             only:
