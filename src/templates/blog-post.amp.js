@@ -132,7 +132,7 @@ class AMPBlogPostTemplate extends React.Component {
   }
 }
 
-AMPBlogPostTemplate.PropTypes = {
+AMPBlogPostTemplate.propTypes = {
   pageContext: PropTypes.shape({
     previous: PropTypes.shape({
       fields: PropTypes.shape({

@@ -101,7 +101,7 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-BlogPostTemplate.PropTypes = {
+BlogPostTemplate.propTypes = {
   pageContext: PropTypes.shape({
     previous: PropTypes.shape({
       fields: PropTypes.shape({
