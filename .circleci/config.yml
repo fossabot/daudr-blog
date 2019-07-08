@@ -32,7 +32,7 @@ jobs:
           name: Gatsby Build
           command: ./node_modules/.bin/gatsby build
 
-  build-test:
+  deploy-test:
     working_directory: ~/repo
 
     steps:     
@@ -40,7 +40,7 @@ jobs:
           name: Firebase Deploy Test
           command: ./node_modules/.bin/firebase deploy --only hosting:test --token=$FIREBASE_TOKEN
   
-  build-prod:
+  deploy-prod:
     working_directory: ~/repo
 
     steps:     
@@ -50,20 +50,16 @@ jobs:
 
 workflows:
   version: 2
-  deploy_test:
-    filters:
-      branches:
-      only:
-        - develop
+  deploy_test_prod:
     jobs:
       - build
       - deploy-test
-
-  deploy_prod:
-    filters:
-      branches:
-        only:
-          - master
-    jobs:
-      - build
+        filters:
+          branches:
+          only:
+            - develop
       - deploy-prod
+        filters:
+          branches:
+            only:
+              - master
