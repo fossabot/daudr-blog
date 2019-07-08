@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build-test:
+  build:
     branches:
       only:
         - develop
@@ -40,7 +40,7 @@ jobs:
           name: Firebase Deploy Test
           command: ./node_modules/.bin/firebase deploy --only hosting:test --token=$FIREBASE_TOKEN
   
-  build-prod:
+  build:
     branches:
       only:
         - master
