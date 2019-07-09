@@ -1,3 +1,6 @@
+![CircleCI](https://img.shields.io/circleci/build/github/Daudr/daudr-blog/master.svg?label=CircleCI%20PROD)
+![CircleCI](https://img.shields.io/circleci/build/github/Daudr/daudr-blog/develop.svg?label=CircleCI%20TEST)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
