@@ -3,7 +3,7 @@ title: "The new Facebook cryptocurrency: Libra"
 description: Facebook will be releasing its new cryptocurrency in the first half of 2020. But what is Libra?
 tags: ['facebook', 'libra', 'blockchain', 'stablecoin', 'cryptocurrency']
 keywords: ['facebook', 'libra', 'blockchain', 'stablecoin', 'cryptocurrency']
-cover_image: 'https://unsplash.com/photos/Uo2ZXh4XOLY'
+cover_image: https://images.unsplash.com/photo-1555020368-9e1b4cf78a52?ixlib=rb-1.2.1&auto=format&fit=crop&w=1136&q=80
 date: "2019-06-19T09:27:10.759Z"
 id: "facebook-libra"
 ---
