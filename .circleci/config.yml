@@ -45,7 +45,7 @@ jobs:
     steps:     
       - run:
           name: Firebase Deploy Test
-          command: npm run deploy:test:ci
+          command: npx firebase deploy --only hosting:test --token=$FIREBASE_TOKEN
   
   deploy-prod:
     working_directory: ~/repo
@@ -56,13 +56,15 @@ jobs:
     steps:     
       - run:
           name: Firebase Deploy Prod
-          command: npm run deploy:prod:ci
+          command: npx firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN
 
 workflows:
   version: 2
-  deploy_test_prod:
+  build_and_deploy:
     jobs:
       - build
+      # TODO: - unit test
+      # TODO: - E2E test
       - deploy-test:
           requires:
             - build
