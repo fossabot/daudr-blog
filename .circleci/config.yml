@@ -15,7 +15,7 @@ jobs:
 
       - run:
           name: Unit tests component
-          command: npm run test:ci
+          command: npx jest --ci
 
   build:
     docker: 
