@@ -1,13 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
 
-import { rhythm } from "../utils/typography"
-import Bio from "../components/bio"
+import { rhythm } from "../../utils/typography"
 
-const Tags = ({ pageContext, data }) => {
+import Bio from "../../components/bio/bio"
+import Layout from "../../components/layout/layout"
+
+export const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const siteTitle = data.site.siteMetadata.title

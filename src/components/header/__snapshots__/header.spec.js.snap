@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header>
+  <h1
+    style={
+      Object {
+        "fontSize": "3.95285rem",
+        "lineHeight": "4.375rem",
+        "marginBottom": "2.625rem",
+        "marginTop": 0,
+      }
+    }
+  >
+    <a
+      href="/"
+      style={
+        Object {
+          "boxShadow": "none",
+          "color": "inherit",
+          "textDecoration": "none",
+        }
+      }
+    >
+      Header Test
+    </a>
+  </h1>
+</header>
+`;

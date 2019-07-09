@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 
 // Components
 import { graphql } from "gatsby"
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-import Tag from "../components/tag";
+import SEO from "../components/seo/seo"
+import Layout from "../components/layout/layout"
+import Tag from "../components/tag/tag";
 
-const TagsPage = ({
+export const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
     site: {
