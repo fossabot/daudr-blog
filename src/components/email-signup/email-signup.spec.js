@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import renderer from "react-test-renderer"
 
 import EmailSignup from "./email-signup"
@@ -9,7 +9,7 @@ let invalidEmail
 describe("EmailSignup", () => {
   beforeEach(() => {
     testHook(() => {
-      
+      invalidEmail = useState(false)
     })
   })
 
@@ -19,4 +19,15 @@ describe("EmailSignup", () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  /* it("should display an error text on invalid email", () => {
+    expect(invalidEmail).toBeFalsy();
+
+    const component = renderer.create(<EmailSignup />);
+
+    component.checkMail('invalidemail');
+
+    expect(invalidEmail).toBeTruthy();
+    
+  }) */
 })
