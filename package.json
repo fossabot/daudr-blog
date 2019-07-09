@@ -77,7 +77,8 @@
     "deploy:prod": "rm -fr public/ && gatsby build && firebase deploy --only hosting:prod",
     "deploy:test:ci": "firebase deploy --only hosting:test --token=$FIREBASE_TOKEN",
     "deploy:prod:ci": "firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --ci"
   },
   "bit": {
     "env": {
