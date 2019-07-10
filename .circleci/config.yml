@@ -115,6 +115,10 @@ jobs:
       - run:
           name: Firebase Deploy Prod
           command: npx firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN
+      
+      - run:
+          name: Semantic release
+          command: npm run semantic-release || true
 
 workflows:
   version: 2

@@ -2,7 +2,7 @@
   "name": "daudr-blog",
   "private": true,
   "description": "Front end code for Daudr's blog",
-  "version": "0.6.2",
+  "version": "0.0.0-development",
   "author": "Michele Da Rin Fioretto <michele@daudr.me>",
   "bugs": {
     "url": "https://github.com/Daudr/daudr-blog/issues"
@@ -54,7 +54,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "semantic-release": "^15.13.18"
   },
   "homepage": "https://blog.daudr.me",
   "keywords": [
@@ -66,7 +67,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Daudr/daudr-blog.git"
+    "url": "https://github.com/Daudr/daudr-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -79,7 +80,8 @@
     "deploy:test:ci": "firebase deploy --only hosting:test --token=$FIREBASE_TOKEN",
     "deploy:prod:ci": "firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN",
     "test": "jest",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "semantic-release": "semantic-release"
   },
   "bit": {
     "env": {
