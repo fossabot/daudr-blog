@@ -3,11 +3,11 @@ import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
-import { rhythm } from "../utils/typography"
-
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
-function EmailSignup() {
+import { rhythm } from "../../utils/typography"
+
+export const EmailSignup = () => {
   const [email, setEmail] = useState("")
   const [data, setData] = useState({})
   const [invalidEmail, setInvalidEmail] = useState(false);

@@ -14,9 +14,9 @@ import {
   EmailIcon,
 } from "react-share"
 
-import "../styles/share-buttons.css"
+import "./share-buttons.css"
 
-function ShareButtons({ postNode, url }) {
+export const ShareButtons = ({ postNode, url }) => {
   const iconSize = 30
   const post = postNode.frontmatter
 
