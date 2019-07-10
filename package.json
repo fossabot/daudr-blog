@@ -47,13 +47,14 @@
     "auto-changelog": "^1.13.0",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.2.1",
+    "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "firebase-tools": "^7.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
-    "react-test-renderer": "^16.8.6",
-    "firebase-tools": "^7.0.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.8.6"
   },
   "homepage": "https://blog.daudr.me",
   "keywords": [
@@ -86,5 +87,10 @@
     },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
