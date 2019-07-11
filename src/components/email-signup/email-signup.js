@@ -73,6 +73,7 @@ export const EmailSignup = () => {
             helperText={emailText}
             value={email}
             onChange={event => checkMail(event.target.value)}
+            data-cy="email-input"
           />
           <FormHelperText data-cy="error-text" hidden={!invalidEmail}>{errorText}</FormHelperText>
         </FormControl>
@@ -82,6 +83,7 @@ export const EmailSignup = () => {
           color="primary"
           disabled={email === "" || invalidEmail}
           style={{ marginLeft: rhythm(1 / 2), height: `56px` }}
+          data-cy="email-button"
         >
           Add me!
         </Button>

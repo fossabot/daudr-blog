@@ -27,15 +27,16 @@ export const BlogIndex = ({ data, location }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <div key={node.fields.slug}>
-            <h3
+            <h2
               style={{
                 marginBottom: rhythm(1 / 4),
               }}
+              data-cy="post-title"
             >
               <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                 {title}
               </Link>
-            </h3>
+            </h2>
             <small>{node.frontmatter.date}</small>
             <p
               dangerouslySetInnerHTML={{

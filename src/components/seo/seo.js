@@ -153,7 +153,7 @@ export const SEO = ({
 }
 
 SEO.defaultProps = {
-  lang: `it`,
+  lang: `en`,
   meta: [],
   keywords: [],
   description: ``,
