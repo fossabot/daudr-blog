@@ -62,6 +62,10 @@ jobs:
           name: Install Dependencies
           command: npm install
 
+      - run:
+          name: Install cypress 
+          command: npx cypress install
+
       - save_cache: 
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
             
@@ -99,10 +103,6 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
-      
-      - run:
-          name: Install cypress globally
-          command: npm i -g cypress
 
       - save_cache: 
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
