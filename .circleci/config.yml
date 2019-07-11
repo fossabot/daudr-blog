@@ -130,8 +130,7 @@ workflows:
     jobs:
       - unit-test
 
-      - cypress/install:
-          build: 'npm run develop'
+      - cypress/install
 
       - cypress/run:
           requires:
