@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  cypress: cypress-io/cypress@1
 jobs:
   unit-test:
     docker:
@@ -36,43 +38,6 @@ jobs:
       - run:
           name: Unit tests component
           command: npx jest --ci
-
-  e2e-test:
-    docker:
-      - image: circleci/node:8
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout:
-          path: ~/repo
-      
-      - attach_workspace:
-          at: ~/repo
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            # Find a cache corresponding to this specific package-lock.json checksum
-            # when this file is changed, this key will fail
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
-            # Find the most recently generated cache used from any branch
-            - v1-npm-deps-
-      
-      - run:
-          name: Install Dependencies
-          command: npm install
-
-      - save_cache: 
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
-            
-          paths:
-            - ./node_modules
-            - ../.cache/Cypress
-
-      - run:
-          name: E2E Tests
-          command: npm run test:e2e:ci
 
   build:
     docker: 
@@ -164,12 +129,25 @@ workflows:
   build_and_deploy:
     jobs:
       - unit-test
-      - e2e-test
+
+      - cypress/install:
+          build: 'npm run develop'
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: true
+          parallel: true
+          parallelism: 4
+          group: 'all tests'
+          start: 'start-server-and-test develop http://localhost:8000'
+
       - build
+
       - deploy-test:
           requires:
             - unit-test
-            - e2e-test
+            - cypress/run
             - build
           filters:
             branches:
@@ -178,7 +156,7 @@ workflows:
       - deploy-prod:
           requires:
             - unit-test
-            - e2e-test
+            - cypress/run
             - build
           filters:
             branches:
