@@ -182,7 +182,7 @@ workflows:
       - deploy-test:
           requires:
             - unit-test
-            - e2e-test
+            - cypress/run
             - build
           filters:
             branches:
@@ -191,7 +191,7 @@ workflows:
       - deploy-prod:
           requires:
             - unit-test
-            - e2e-test
+            - cypress/run
             - build
           filters:
             branches:
