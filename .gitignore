@@ -78,3 +78,5 @@ yarn-error.log
 
 # Test files
 __snapshots__
+videos
+screenshots
