@@ -33,11 +33,46 @@ jobs:
             
           paths:
             - ./node_modules
-            - ../.cache/Cypress
+            - ~/.npm
+            - ~/.cache
 
       - run:
           name: Unit tests component
           command: npx jest --ci
+
+  e2e-test:
+    docker:
+      - image: circleci/node:8
+    
+    working_directory: ~/repo
+
+    steps:
+      - checkout:
+          path: ~/repo
+      
+      - attach_workspace:
+          at: ~/repo
+
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
+      
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - save_cache: 
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+            
+          paths:
+            - ./node_modules
+            - ~/.npm
+            - ~/.cache
+
+      - run:
+          name: Run E2E Tests
+          command: npm run test:e2e:ci
 
   build:
     docker: 
@@ -70,7 +105,8 @@ jobs:
             
           paths:
             - ./node_modules
-            - ../.cache/Cypress
+            - ~/.npm
+            - ~/.cache
       
       - run:
           name: Cleaning up Gatsby
@@ -130,23 +166,14 @@ workflows:
     jobs:
       - unit-test
 
-      - cypress/install
-
-      - cypress/run:
-          requires:
-            - cypress/install
-          record: true
-          parallel: true
-          parallelism: 4
-          group: 'all tests'
-          start: 'start-server-and-test develop http://localhost:8000'
+      - e2e-test
 
       - build
 
       - deploy-test:
           requires:
             - unit-test
-            - cypress/run
+            - e2e-test
             - build
           filters:
             branches:
@@ -155,7 +182,7 @@ workflows:
       - deploy-prod:
           requires:
             - unit-test
-            - cypress/run
+            - e2e-test
             - build
           filters:
             branches:
