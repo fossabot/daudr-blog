@@ -62,10 +62,6 @@ jobs:
           name: Install Dependencies
           command: npm install
 
-      - run:
-          name: Install cypress 
-          command: npx cypress install
-
       - save_cache: 
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
             
@@ -170,7 +166,11 @@ workflows:
     jobs:
       - unit-test
 
-      - e2e-test
+      - cypress/install
+
+      - e2e-test:
+          requires:
+            - cypress/install
 
       - build
 

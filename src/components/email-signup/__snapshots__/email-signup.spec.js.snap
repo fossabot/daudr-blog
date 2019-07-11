@@ -49,6 +49,7 @@ exports[`EmailSignup renders correctly 1`] = `
     >
       <div
         className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+        data-cy="email-input"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -113,6 +114,7 @@ exports[`EmailSignup renders correctly 1`] = `
     </div>
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      data-cy="email-button"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
