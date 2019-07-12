@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const languages = require('./src/data/languages')
+
 module.exports = {
   siteMetadata: {
     title: process.env.BLOG_NAME,
@@ -31,6 +33,7 @@ module.exports = {
         link: process.env.TWITTER_LINK,
       },
     ],
+    languages,
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -190,6 +193,15 @@ module.exports = {
       options: {
         shortname: process.env.DISQUS_SHORTNAME,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: true,
+        prefixDefault: false,
+      }
     },
   ],
 }

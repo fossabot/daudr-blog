@@ -4,10 +4,11 @@ import { Link } from "gatsby"
 import { scale, rhythm } from "../../utils/typography"
 
 export const Header = ({ location, title }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+  const rootItPath = `${__PATH_PREFIX__}/it`
+  const rootEnPath = `${__PATH_PREFIX__}/en`
   let header
 
-  if (location.pathname === rootPath) {
+  if (location.pathname === rootItPath || location.pathname === rootEnPath) {
     header = (
       <h1
         style={{
