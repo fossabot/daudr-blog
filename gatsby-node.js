@@ -1,13 +1,15 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const _ = require(`lodash`);
+const { each, get, uniq, kebabCase } = require(`lodash`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const ampBlogPost = path.resolve(`./src/templates/blog-post.amp.js`);
-  const tagTemplate = path.resolve(`./src/templates/tags.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post/blog-post.js`)
+  const ampBlogPost = path.resolve(
+    `./src/templates/blog-post-amp/blog-post.amp.js`
+  )
+  const tagTemplate = path.resolve(`./src/templates/tags/tags.js`)
   return graphql(
     `
       {
@@ -65,18 +67,18 @@ exports.createPages = ({ graphql, actions }) => {
       // Tag pages:
       let tags = []
       // Iterate through each post, putting all found tags into `tags`
-      _.each(posts, edge => {
-        if (_.get(edge, "node.frontmatter.tags")) {
+      each(posts, edge => {
+        if (get(edge, "node.frontmatter.tags")) {
           tags = tags.concat(edge.node.frontmatter.tags)
         }
       })
       // Eliminate duplicate tags
-      tags = _.uniq(tags)
+      tags = uniq(tags)
 
       // Make tag pages
       tags.forEach(tag => {
         createPage({
-          path: `/tags/${_.kebabCase(tag)}/`,
+          path: `/tags/${kebabCase(tag)}/`,
           component: tagTemplate,
           context: {
             tag,
@@ -100,4 +102,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@components": path.resolve(__dirname, "src/components"),
+        "@pages": path.resolve(__dirname, "src/pages"),
+        "@templates": path.resolve(__dirname, "src/templates"),
+        "@utils": path.resolve(__dirname, "src/utils"),
+        "@mocks": path.resolve(__dirname, "__mocks__"),
+      },
+    },
+  })
 }

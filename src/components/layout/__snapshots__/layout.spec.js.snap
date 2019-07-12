@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "marginLeft": "auto",
+      "marginRight": "auto",
+      "maxWidth": "42rem",
+      "padding": "2.625rem 1.3125rem",
+    }
+  }
+>
+  <header>
+    <h1
+      style={
+        Object {
+          "fontSize": "3.95285rem",
+          "lineHeight": "4.375rem",
+          "marginBottom": "2.625rem",
+          "marginTop": 0,
+        }
+      }
+    >
+      <a
+        href="/"
+        style={
+          Object {
+            "boxShadow": "none",
+            "color": "inherit",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Layout Test
+      </a>
+    </h1>
+  </header>
+  <main />
+  <footer>
+    <a
+      href="https://www.iubenda.com/privacy-policy/49067529"
+      rel="noopener noreferrer"
+      style={
+        Object {
+          "boxShadow": "none",
+          "color": "currentColor",
+        }
+      }
+      target="_blank"
+      title="Privacy Policy"
+    >
+      Privacy Policy
+    </a>
+    <br />
+    © 
+    2019
+    , Michele Da Rin Fioretto - Dauðr
+  </footer>
+  <div
+    className="cookieConsent "
+    style={
+      Object {
+        "alignItems": "baseline",
+        "background": "#353535",
+        "bottom": "0",
+        "color": "white",
+        "display": "flex",
+        "flexWrap": "wrap",
+        "justifyContent": "space-between",
+        "left": "0",
+        "position": "fixed",
+        "width": "100%",
+        "zIndex": "999",
+      }
+    }
+  >
+    <div
+      className=""
+      style={
+        Object {
+          "flex": "1 0 300px",
+          "margin": "15px",
+        }
+      }
+    >
+      This website uses cookies to enhance the user experience.
+    </div>
+    <button
+      className=""
+      id=""
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#ffd42d",
+          "border": "0",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "color": "black",
+          "cursor": "pointer",
+          "flex": "0 0 auto",
+          "margin": "15px",
+          "padding": "5px 10px",
+        }
+      }
+    >
+      I understand
+    </button>
+  </div>
+</div>
+`;

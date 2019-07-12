@@ -1,0 +1,195 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+jobs:
+  unit-test:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout:
+          path: ~/repo
+      
+      - attach_workspace:
+          at: ~/repo
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json checksum
+            # when this file is changed, this key will fail
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            # Find the most recently generated cache used from any branch
+            - v1-npm-deps-
+      
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - save_cache: 
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+            
+          paths:
+            - ./node_modules
+            - ~/.npm
+            - ~/.cache
+
+      - run:
+          name: Unit tests component
+          command: npx jest --ci
+
+  e2e-test:
+    docker:
+      - image: circleci/node:8
+    
+    working_directory: ~/repo
+
+    steps:
+      - checkout:
+          path: ~/repo
+      
+      - attach_workspace:
+          at: ~/repo
+
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
+      
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - save_cache: 
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+            
+          paths:
+            - ./node_modules
+            - ~/.npm
+            - ~/.cache
+
+      - run:
+          name: Run E2E Tests
+          command: npm run test:e2e:ci
+
+  build:
+    docker: 
+      - image: circleci/node:8
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout:
+          path: ~/repo/
+
+      - attach_workspace:
+          at: ~/repo/
+      
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json checksum
+            # when this file is changed, this key will fail
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            # Find the most recently generated cache used from any branch
+            - v1-npm-deps-
+      
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - save_cache: 
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+            
+          paths:
+            - ./node_modules
+            - ~/.npm
+            - ~/.cache
+      
+      - run:
+          name: Cleaning up Gatsby
+          command: npx gatsby clean
+
+      - run:
+          name: Gatsby Build
+          command: npm run build
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - node_modules
+            - public
+
+  deploy-test:
+    working_directory: ~/repo
+
+    docker: 
+      - image: circleci/node:8
+
+    steps:
+      - checkout:
+          path: ~/repo/
+
+      - attach_workspace:
+          at: ~/repo
+ 
+      - run:
+          name: Firebase Deploy Test
+          command: npx firebase deploy --only hosting:test --token=$FIREBASE_TOKEN
+  
+  deploy-prod:
+    working_directory: ~/repo
+
+    docker: 
+      - image: circleci/node:8
+
+    steps:
+      - checkout:
+          path: ~/repo/
+
+      - attach_workspace:
+          at: ~/repo
+  
+      - run:
+          name: Firebase Deploy Prod
+          command: npx firebase deploy --only hosting:prod --token=$FIREBASE_TOKEN
+      
+      - run:
+          name: Semantic release
+          command: npm run semantic-release || true
+
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - unit-test
+
+      - cypress/install
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          group: 'all tests' # name this group "all tests" on the dashboard
+          start: 'npm run develop' # start server before running tests
+
+      - build
+
+      - deploy-test:
+          requires:
+            - unit-test
+            - cypress/run
+            - build
+          filters:
+            branches:
+              only: develop
+
+      - deploy-prod:
+          requires:
+            - unit-test
+            - cypress/run
+            - build
+          filters:
+            branches:
+              only: master

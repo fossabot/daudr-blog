@@ -1,30 +1,34 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Dauðr Blog`,
+    title: process.env.BLOG_NAME,
     author: `Michele Da Rin Fioretto`,
     description: `Dauðr Blog: tecnologia alla portata di tutti`,
-    siteUrl: `https://blog.daudr.me`,
-    twitterUserName: "MicheleDaRin",
+    siteUrl: process.env.BASE_URL,
+    twitterUserName: process.env.TWITTER_USERNAME,
     social: [
       {
         social: `Facebook`,
-        link: `https://www.facebook.com/micheleedarin`,
+        link: process.env.FACEBOOK_LINK,
       },
       {
         social: `LinkedIn`,
-        link: `https://www.linkedin.com/in/micheleedarin`,
+        link: process.env.LINKEDIN_LINK,
       },
       {
         social: `Github`,
-        link: `https://www.github.com/Daudr`,
+        link: process.env.GITHUB_LINK,
       },
       {
         social: `Instagram`,
-        link: `https://www.instagram.com/micheleedarin`,
+        link: process.env.IG_LINK,
       },
       {
         social: `Twitter`,
-        link: `https://www.twitter.com/MicheleDaRin`,
+        link: process.env.TWITTER_LINK,
       },
     ],
   },
@@ -63,6 +67,7 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-external-links`,
         ],
       },
     },
@@ -71,7 +76,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-45433517-6`,
+        trackingId: process.env.ANALYTICS_ID,
       },
     },
     {
@@ -102,7 +107,7 @@ module.exports = {
           dataCredentials: "include",
           config: {
             vars: {
-              gtag_id: `UA-45433517-6`,
+              gtag_id: process.env.ANALYTICS_ID,
               config: {
                 "UA-45433517-6": {
                   page_location: "{{pathname}}",
@@ -111,13 +116,19 @@ module.exports = {
             },
           },
         },
-        canonicalBaseUrl: "https://blog.daudr.me/",
+        canonicalBaseUrl: process.env.BASE_URL,
         components: ["amp-form", "amp-ad", "amp-auto-ads"],
         excludedPaths: ["/404*", "/"],
         pathIdentifier: "amp/",
         relAmpHtmlPattern: "{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}",
         relCanonicalPattern: `{{canonicalBaseUrl}}{{pathname}}`,
         useAmpClientIdApi: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
       },
     },
     {
@@ -177,7 +188,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `daudr-blog`,
+        shortname: process.env.DISQUS_SHORTNAME,
       },
     },
   ],

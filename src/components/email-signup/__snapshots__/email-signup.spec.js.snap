@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailSignup renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "margin": "1.75rem",
+      "textAlign": "center",
+    }
+  }
+>
+  <p
+    style={
+      Object {
+        "marginBottom": 0,
+      }
+    }
+  >
+    Do you want to be updated when new articles are being published?
+  </p>
+  <p
+    style={
+      Object {
+        "marginBottom": "0.875rem",
+      }
+    }
+  >
+    Join the newsletter!
+     
+    <span
+      aria-label="sunglasses smile"
+      role="img"
+    >
+      😎
+    </span>
+  </p>
+  <form
+    style={
+      Object {
+        "alignItems": "baseline",
+        "display": "flex",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      className="MuiFormControl-root"
+    >
+      <div
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+        data-cy="email-input"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink={false}
+          htmlFor="email"
+        >
+          Email
+        </label>
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          onClick={[Function]}
+        >
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-57 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
+          >
+            <legend
+              className="PrivateNotchedOutline-legend-58"
+              style={
+                Object {
+                  "width": 0.01,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="email"
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+        
+      </div>
+      <p
+        className="MuiFormHelperText-root"
+        data-cy="error-text"
+        hidden={true}
+      >
+        
+      </p>
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      data-cy="email-button"
+      disabled={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "height": "56px",
+          "marginLeft": "0.875rem",
+        }
+      }
+      tabIndex={-1}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Add me!
+      </span>
+    </button>
+  </form>
+</div>
+`;
