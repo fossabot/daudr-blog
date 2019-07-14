@@ -52,6 +52,7 @@ export const pageQuery = graphql`
             title
             description
             tags
+            cover_image
           }
         }
       }

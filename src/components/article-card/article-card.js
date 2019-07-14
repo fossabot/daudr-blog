@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import { makeStyles } from "@material-ui/styles"
 import Card from "@material-ui/core/Card"
+import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 import Chip from "@material-ui/core/Chip"
@@ -23,6 +24,9 @@ const useStyles = makeStyles({
   chip: {
     margin: `2px`,
   },
+  media: {
+    height: 280,
+  },
 })
 
 export const ArticleCard = ({ node }) => {
@@ -31,6 +35,11 @@ export const ArticleCard = ({ node }) => {
 
   return (
     <Card className={classes.card}>
+      <CardMedia
+        className={classes.media}
+        image={node.frontmatter.cover_image}
+        title={title}
+      />
       <CardContent>
         <Typography
           className={classes.title}
