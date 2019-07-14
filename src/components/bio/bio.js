@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../../utils/typography"
+import Paper from "@material-ui/core/Paper"
 
 export const Bio = () => {
   return (
@@ -12,11 +13,12 @@ export const Bio = () => {
         const { author, social } = data.site.siteMetadata
 
         return (
-          <div
+          <Paper
             style={{
               display: `flex`,
               marginTop: rhythm(1.25),
               marginBottom: rhythm(1 / 2),
+              padding: rhythm(1 / 2),
             }}
           >
             <Image
@@ -35,7 +37,7 @@ export const Bio = () => {
             <div>
               Written by <strong>{author}</strong> a freelance web developer
               that works in Italy and in the world.
-              <br />
+              <div style={{ marginTop: rhythm(1 / 2) }}></div>
               You can also find him on
               <br />
               {social.map((social, i) => {
@@ -91,7 +93,7 @@ export const Bio = () => {
                 )
               })}
             </div>
-          </div>
+          </Paper>
         )
       }}
     />
