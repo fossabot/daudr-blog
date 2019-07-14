@@ -11,11 +11,23 @@ exports[`Tags renders correctly 1`] = `
     }
   }
 >
-  <header>
-    <h3
+  <header
+    style={
+      Object {
+        "color": "white",
+      }
+    }
+  >
+    <div
+      className="background-sky hero"
+    />
+    <h1
+      className="header-title"
       style={
         Object {
-          "fontFamily": "Montserrat, sans-serif",
+          "fontSize": "3.95285rem",
+          "lineHeight": "4.375rem",
+          "marginBottom": "2.625rem",
           "marginTop": 0,
         }
       }
@@ -32,7 +44,7 @@ exports[`Tags renders correctly 1`] = `
       >
         Dauðr Blog Test
       </a>
-    </h3>
+    </h1>
   </header>
   <main>
     <h2>
@@ -112,11 +124,13 @@ exports[`Tags renders correctly 1`] = `
       </a>
     </div>
     <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
       style={
         Object {
           "display": "flex",
           "marginBottom": "0.875rem",
           "marginTop": "2.1875rem",
+          "padding": "0.875rem",
         }
       }
     >
@@ -202,7 +216,13 @@ exports[`Tags renders correctly 1`] = `
           Michele Da Rin Fioretto
         </strong>
          a freelance web developer that works in Italy and in the world.
-        <br />
+        <div
+          style={
+            Object {
+              "marginTop": "0.875rem",
+            }
+          }
+        />
         You can also find him on
         <br />
         <a
