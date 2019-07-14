@@ -14,6 +14,8 @@ import EmailSignup from "../../components/email-signup/email-signup"
 
 import { makeStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
+import ArrowBackIcon from "@material-ui/icons/ArrowBack"
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -90,15 +92,23 @@ export const BlogPostTemplate = ({ data, pageContext, location }) => {
       >
         <li>
           {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
+            <Link
+              to={previous.fields.slug}
+              rel="prev"
+              style={{ display: `flex`, boxShadow: `none` }}
+            >
+              <ArrowBackIcon></ArrowBackIcon> {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
+            <Link
+              to={next.fields.slug}
+              rel="next"
+              style={{ display: `flex`, boxShadow: `none` }}
+            >
+              {next.frontmatter.title} <ArrowForwardIcon></ArrowForwardIcon>
             </Link>
           )}
         </li>
