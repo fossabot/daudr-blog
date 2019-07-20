@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import { makeStyles } from "@material-ui/styles"
 import Card from "@material-ui/core/Card"
-import CardMedia from '@material-ui/core/CardMedia'
+import CardMedia from "@material-ui/core/CardMedia"
 import CardContent from "@material-ui/core/CardContent"
 import Typography from "@material-ui/core/Typography"
 import Chip from "@material-ui/core/Chip"
@@ -35,55 +35,59 @@ export const ArticleCard = ({ node }) => {
   const classes = useStyles()
 
   return (
-    <Card className={classes.card}>
-      <CardMedia
-        className={classes.media}
-        image={node.frontmatter.cover_image}
-        title={title}
-      />
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          {tags.slice(0, 3).map(tag => {
-            return (
-              <Link
-                key={tag}
-                to={`/tags/${kebabCase(tag)}`}
-                style={{ boxShadow: `none` }}
-              >
-                <Chip
-                  size="small"
-                  label={`#${tag}`}
-                  className={classes.chip}
-                  style={{ fontFamily: `'Anton', sans-serif`, fontWeight: `bold`, textTransform: `uppercase` }}
-                  onClick={() => {}}
-                ></Chip>
-              </Link>
-            )
-          })}
-        </Typography>
-        <Typography variant="h5" component="h2" data-cy="post-title">
-          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image={node.frontmatter.cover_image}
+          title={title}
+        />
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            {tags.slice(0, 3).map(tag => {
+              return (
+                <Link
+                  key={tag}
+                  to={`/tags/${kebabCase(tag)}`}
+                  style={{ boxShadow: `none` }}
+                >
+                  <Chip
+                    size="small"
+                    label={`#${tag}`}
+                    className={classes.chip}
+                    style={{
+                      fontFamily: `'Anton', sans-serif`,
+                      fontWeight: `bold`,
+                      textTransform: `uppercase`,
+                    }}
+                    onClick={() => {}}
+                  ></Chip>
+                </Link>
+              )
+            })}
+          </Typography>
+          <Typography variant="h5" component="h2" data-cy="post-title">
             {title}
-          </Link>
-        </Typography>
-        <Typography
-          className={classes.pos}
-          variant="subtitle2"
-          component="p"
-          color="textSecondary"
-        >
-          {node.frontmatter.date}
-        </Typography>
+          </Typography>
+          <Typography
+            className={classes.pos}
+            variant="subtitle2"
+            component="p"
+            color="textSecondary"
+          >
+            {node.frontmatter.date}
+          </Typography>
 
-        <Typography variant="body2" component="p">
-          {node.frontmatter.description || node.excerpt}
-        </Typography>
-      </CardContent>
-    </Card>
+          <Typography variant="body2" component="p">
+            {node.frontmatter.description || node.excerpt}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }
 
