@@ -47,68 +47,98 @@ exports[`Tags renders correctly 1`] = `
     </h1>
   </header>
   <main>
-    <h2>
-      2 posts tagged with "angular"
+    <h2
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "'Anton', sans-serif",
+          "fontWeight": "bold",
+          "letterSpacing": "3px",
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      #angular posts
     </h2>
-    <div>
-      <h3
-        style={
-          Object {
-            "marginBottom": "0.4375rem",
-          }
-        }
-      >
-        <a
-          href="/ngfor-done-right/"
-          style={
-            Object {
-              "boxShadow": "none",
-            }
-          }
-        >
-          ngFor Done Right
-        </a>
-      </h3>
-      <small>
-        July 04, 2019
-      </small>
-      <p
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know hot use it right",
-          }
-        }
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1 MuiPaper-rounded"
+    >
+      <div
+        className="MuiCardMedia-root makeStyles-media-5"
+        title="ngFor Done Right"
       />
+      <div
+        className="MuiCardContent-root"
+      >
+        <p
+          className="MuiTypography-root makeStyles-title-2 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+        />
+        <h2
+          className="MuiTypography-root MuiTypography-h5"
+          data-cy="post-title"
+        >
+          <a
+            href="/ngfor-done-right/"
+            style={
+              Object {
+                "boxShadow": "none",
+              }
+            }
+          >
+            ngFor Done Right
+          </a>
+        </h2>
+        <p
+          className="MuiTypography-root makeStyles-pos-3 MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        >
+          July 04, 2019
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body2"
+        >
+          When dealing with lists in templates, ngFor saves us a lot of time, but it could be a real pain if used wrong, read this article to know hot use it right
+        </p>
+      </div>
     </div>
-    <div>
-      <h3
-        style={
-          Object {
-            "marginBottom": "0.4375rem",
-          }
-        }
-      >
-        <a
-          href="/conditional-polyfills/"
-          style={
-            Object {
-              "boxShadow": "none",
-            }
-          }
-        >
-          Conditional Polyfill in Angular v7
-        </a>
-      </h3>
-      <small>
-        May 18, 2019
-      </small>
-      <p
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "How to enable conditional polyfills loading in an Angular v7 project",
-          }
-        }
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1 MuiPaper-rounded"
+    >
+      <div
+        className="MuiCardMedia-root makeStyles-media-5"
+        title="Conditional Polyfill in Angular v7"
       />
+      <div
+        className="MuiCardContent-root"
+      >
+        <p
+          className="MuiTypography-root makeStyles-title-2 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+        />
+        <h2
+          className="MuiTypography-root MuiTypography-h5"
+          data-cy="post-title"
+        >
+          <a
+            href="/conditional-polyfills/"
+            style={
+              Object {
+                "boxShadow": "none",
+              }
+            }
+          >
+            Conditional Polyfill in Angular v7
+          </a>
+        </h2>
+        <p
+          className="MuiTypography-root makeStyles-pos-3 MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        >
+          May 18, 2019
+        </p>
+        <p
+          className="MuiTypography-root MuiTypography-body2"
+        >
+          How to enable conditional polyfills loading in an Angular v7 project
+        </p>
+      </div>
     </div>
     <div
       style={

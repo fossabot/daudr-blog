@@ -31,6 +31,7 @@ const useStyles = makeStyles({
 
 export const ArticleCard = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug
+  const tags = node.frontmatter.tags || []
   const classes = useStyles()
 
   return (
@@ -46,7 +47,7 @@ export const ArticleCard = ({ node }) => {
           color="textSecondary"
           gutterBottom
         >
-          {node.frontmatter.tags.slice(0, 3).map(tag => {
+          {tags.slice(0, 3).map(tag => {
             return (
               <Link
                 key={tag}
