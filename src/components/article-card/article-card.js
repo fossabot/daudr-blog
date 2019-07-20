@@ -57,6 +57,7 @@ export const ArticleCard = ({ node }) => {
                   size="small"
                   label={`#${tag}`}
                   className={classes.chip}
+                  style={{ fontFamily: `'Anton', sans-serif`, fontWeight: `bold`, textTransform: `uppercase` }}
                   onClick={() => {}}
                 ></Chip>
               </Link>
