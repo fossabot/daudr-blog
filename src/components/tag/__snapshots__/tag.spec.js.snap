@@ -19,6 +19,7 @@ exports[`Tag renders correctly 1`] = `
     onMouseLeave={[Function]}
     style={
       Object {
+        "backgroundColor": "#FFFFFF",
         "border": "1px dashed black",
         "cursor": "pointer",
         "margin": "5px",
