@@ -30,6 +30,7 @@ export const Tag = ({ tag, count }) => {
           padding: `5px 10px`,
           border: hover ? `1px solid black` : `1px dashed black`,
           margin: `5px`,
+          backgroundColor: `#FFFFFF`
         }}
         onMouseEnter={hoverOn}
         onMouseLeave={hoverOff}
