@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.2.0",
+    "@material-ui/icons": "^4.2.1",
     "gatsby": "^2.13.14",
     "gatsby-image": "^2.2.5",
     "gatsby-plugin-amp": "^0.2.2",
@@ -38,20 +39,19 @@
     "react-helmet": "^5.2.1",
     "react-share": "^3.0.0",
     "react-typography": "^0.16.19",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.54",
+    "typeface-anton": "0.0.72",
+    "typeface-roboto": "0.0.54",
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
     "@testing-library/cypress": "^4.0.4",
-    "axe-core": "^3.3.0",
-    "cypress": "^3.4.0",
-    "cypress-axe": "^0.5.1",
-    "start-server-and-test": "^1.9.1",
     "auto-changelog": "^1.14.1",
+    "axe-core": "^3.3.0",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.2.2",
+    "cypress": "^3.4.0",
+    "cypress-axe": "^0.5.1",
     "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -60,7 +60,8 @@
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",
-    "semantic-release": "^15.13.18"
+    "semantic-release": "^15.13.18",
+    "start-server-and-test": "^1.9.1"
   },
   "homepage": "https://blog.daudr.me",
   "keywords": [

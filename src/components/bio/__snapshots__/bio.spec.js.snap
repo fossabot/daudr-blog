@@ -2,11 +2,13 @@
 
 exports[`Bio renders correctly 1`] = `
 <div
+  className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
   style={
     Object {
       "display": "flex",
       "marginBottom": "0.875rem",
       "marginTop": "2.1875rem",
+      "padding": "0.875rem",
     }
   }
 >
@@ -92,7 +94,13 @@ exports[`Bio renders correctly 1`] = `
       Michele Da Rin Fioretto
     </strong>
      a freelance web developer that works in Italy and in the world.
-    <br />
+    <div
+      style={
+        Object {
+          "marginTop": "0.875rem",
+        }
+      }
+    />
     You can also find him on
     <br />
     <a
