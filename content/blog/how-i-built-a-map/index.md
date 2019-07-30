@@ -8,28 +8,28 @@ date: "2019-07-29T09:27:10.759Z"
 id: "how-i-built-a-map"
 ---
 
-The other day I needed to complete a task for a client, this task consisted in creating an interactive map based on a static SVG. In this article I'll explain how I accomplished the job 👌
+The other day I needed to complete a task for a client, this task consisted of creating an interactive map based on a static SVG. In this article, I'll explain how I accomplished the job 👌
 
 ![Build your map](build-your-map.jpg)
 > Photo by [Andrew Stutesman](https://unsplash.com/@drewmark) on [Unsplash](https://unsplash.com/)
 
 ## First things first
 
-The problem was that the map used wasn't interactive at all, to show the selected regions you needed to add css classes, and there could be only one selected region at one time.
-So i searched the Internet for maybe one **angular** library that could fit my needs, but, unfortunately, without results 😢
+The problem was that the map used wasn't interactive at all, to show the selected regions you needed to add CSS classes, and there could be only one selected region at one time.
+So I searched the Internet for maybe one **angular** library that could fit my needs, but, unfortunately, without results 😢
 
 ## Let's create a new Angular lib
 
-So i said to myself: *Why not create a new library yourself?* and that was it, I opened up my terminal and I typed
+So I said to myself: *Why not create a new library yourself?* and that was it, I opened up my terminal and I typed
 
 `ng new lib @daudr/interactive-italy`
 
-(**Yes, I started this project with only Italy in mind, but interchangable maps are coming, stay tuned!** 😉)
+(**Yes, I started this project with only Italy in mind, but interchangeable maps are coming, stay tuned!** 😉)
 
 ### Create the main component
 
 So I started creating the main component of the library, `interactive-italy.component.ts`, but what's really is this component?
-The answer is simpler than you think, firstly I had to find the right SVG image, and being a noob in all of that I decided to look up on the Internet and I found just what I needed:
+The answer is simpler than you think, firstly I had to find the right SVG image, and being a noob in all of that I decided to look upon the Internet and I found just what I needed:
 
 ![Italy map with regions](https://upload.wikimedia.org/wikipedia/commons/9/9b/Italy_map_with_regions.svg)
 > Thanks Wikimedia ❤
@@ -38,17 +38,16 @@ The only problem was the map wasn't interactive.
 
 ```html
 <svg
-    mapsvg:geoViewBox="6.624486 47.092916 18.521301 35.490303"
-    width="460.30981"
-    height="562.58575"
+  width="460.30981"
+  height="562.58575"
 >
-    <path
-    *ngFor="let region of regions"
-    [attr.d]="region.d"
-    [attr.title]="region.title"
-    (click)="onRegionClick(region.title)"
-    [ngClass]="{ selected: region.title | selected: selectedRegions }"
-    />
+  <path
+  *ngFor="let region of regions"
+  [attr.d]="region.d"
+  [attr.title]="region.title"
+  (click)="onRegionClick(region.title)"
+  [ngClass]="{ selected: region.title | selected: selectedRegions }"
+  />
 </svg>
 ```
 
@@ -57,7 +56,7 @@ It's all here, just that.
 ### Create the data
 
 But let's find out what powers it:
-The `regions` object represent an array that contains all the regions of the map as SVG's paths
+The `regions` object represents an array that contains all the regions of the map as SVG's paths
 
 ```typescript
 export const REGIONS: Region[] = [
@@ -107,7 +106,7 @@ export class SelectedPipe implements PipeTransform {
 }
 ```
 
-And that's it! We built a full interactive map of Italy just from an SVG image, isn't that cool? 😎
+And that's it! We built a fully interactive map of Italy just from an SVG image, isn't that cool? 😎
 
 ![The final result](interactive-map.gif)
 
@@ -115,4 +114,4 @@ As a reminder I published this Angular library on NPM as Open Source, so check i
 
 [@daudr/interactive-italy on NPM](https://www.npmjs.com/package/@daudr/interactive-italy)
 
-Also let me know if you'd like to read how to publish an Angular library on NPM
+Also, let me know if you'd like to read how to publish an Angular library on NPM
