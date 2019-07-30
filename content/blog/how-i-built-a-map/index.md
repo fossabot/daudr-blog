@@ -10,7 +10,7 @@ id: "how-i-built-a-map"
 
 The other day I needed to complete a task for a client, this task consisted of creating an interactive map based on a static SVG. In this article, I'll explain how I accomplished the job 👌
 
-![Build your map](build-your-map.jpg)
+![Build your map](https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80)
 > Photo by [Andrew Stutesman](https://unsplash.com/@drewmark) on [Unsplash](https://unsplash.com/)
 
 ## First things first
@@ -108,7 +108,7 @@ export class SelectedPipe implements PipeTransform {
 
 And that's it! We built a fully interactive map of Italy just from an SVG image, isn't that cool? 😎
 
-![The final result](interactive-map.gif)
+![The final result](https://firebasestorage.googleapis.com/v0/b/daudr-blog.appspot.com/o/interactive-map.gif?alt=media&token=330cb736-44a0-49a0-8c26-b13594471ff5)
 
 As a reminder I published this Angular library on NPM as Open Source, so check it out if you want!
 
