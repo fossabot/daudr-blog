@@ -87,6 +87,8 @@ export const Bio = () => {
                         marginRight: rhythm(1 / 2),
                         marginBottom: 0,
                         minWidth: 30,
+                        maxWidth: `50px`,
+                        maxHeigth: `50px`
                       }}
                     />
                   </a>
