@@ -1,10 +1,11 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import Img from "gatsby-image"
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../../utils/typography"
+import Paper from "@material-ui/core/Paper"
 
-function Bio() {
+export const Bio = () => {
   return (
     <StaticQuery
       query={bioQuery}
@@ -12,14 +13,15 @@ function Bio() {
         const { author, social } = data.site.siteMetadata
 
         return (
-          <div
+          <Paper
             style={{
               display: `flex`,
               marginTop: rhythm(1.25),
-              marginBottom: rhythm(1 / 2)
+              marginBottom: rhythm(1 / 2),
+              padding: rhythm(1 / 2),
             }}
           >
-            <Image
+            <Img
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
               style={{
@@ -35,35 +37,35 @@ function Bio() {
             <div>
               Written by <strong>{author}</strong> a freelance web developer
               that works in Italy and in the world.
-              <br />
+              <div style={{ marginTop: rhythm(1 / 2) }}></div>
               You can also find him on
               <br />
               {social.map((social, i) => {
-                let fixed;
+                let fixed
 
                 switch (i) {
                   case 0: {
-                    fixed = data.facebook.childImageSharp.fixed;
-                    break;
+                    fixed = data.facebook.childImageSharp.fixed
+                    break
                   }
                   case 1: {
-                    fixed = data.linkedin.childImageSharp.fixed;
-                    break;
+                    fixed = data.linkedin.childImageSharp.fixed
+                    break
                   }
                   case 2: {
-                    fixed = data.github.childImageSharp.fixed;
-                    break;
+                    fixed = data.github.childImageSharp.fixed
+                    break
                   }
                   case 3: {
-                    fixed = data.instagram.childImageSharp.fixed;
-                    break;
+                    fixed = data.instagram.childImageSharp.fixed
+                    break
                   }
                   case 4: {
-                    fixed = data.twitter.childImageSharp.fixed;
-                    break;
+                    fixed = data.twitter.childImageSharp.fixed
+                    break
                   }
                   default: {
-                    break;
+                    break
                   }
                 }
 
@@ -78,20 +80,22 @@ function Bio() {
                       color: `currentColor`,
                     }}
                   >
-                    <Image
+                    <Img
                       fixed={fixed}
                       alt={`${author} ${social.social} link`}
                       style={{
                         marginRight: rhythm(1 / 2),
                         marginBottom: 0,
                         minWidth: 30,
+                        maxWidth: `50px`,
+                        maxHeigth: `50px`
                       }}
                     />
                   </a>
                 )
               })}
             </div>
-          </div>
+          </Paper>
         )
       }}
     />
@@ -107,35 +111,35 @@ const bioQuery = graphql`
         }
       }
     }
-    facebook: file(absolutePath: { regex: "/facebook.png/"}) {
+    facebook: file(absolutePath: { regex: "/facebook.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    twitter: file(absolutePath: { regex: "/twitter.png/"}) {
+    twitter: file(absolutePath: { regex: "/twitter.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    github: file(absolutePath: { regex: "/github-logo.png/"}) {
+    github: file(absolutePath: { regex: "/github-logo.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    instagram: file(absolutePath: { regex: "/instagram.png/"}) {
+    instagram: file(absolutePath: { regex: "/instagram.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    linkedin: file(absolutePath: { regex: "/linkedin.png/"}) {
+    linkedin: file(absolutePath: { regex: "/linkedin.png/" }) {
       childImageSharp {
         fixed(width: 30, height: 30) {
           ...GatsbyImageSharpFixed

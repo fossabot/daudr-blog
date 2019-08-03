@@ -3,11 +3,11 @@ import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
-import { rhythm } from "../utils/typography"
-
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
-function EmailSignup() {
+import { rhythm } from "../../utils/typography"
+
+export const EmailSignup = () => {
   const [email, setEmail] = useState("")
   const [data, setData] = useState({})
   const [invalidEmail, setInvalidEmail] = useState(false);
@@ -73,6 +73,7 @@ function EmailSignup() {
             helperText={emailText}
             value={email}
             onChange={event => checkMail(event.target.value)}
+            data-cy="email-input"
           />
           <FormHelperText data-cy="error-text" hidden={!invalidEmail}>{errorText}</FormHelperText>
         </FormControl>
@@ -82,6 +83,7 @@ function EmailSignup() {
           color="primary"
           disabled={email === "" || invalidEmail}
           style={{ marginLeft: rhythm(1 / 2), height: `56px` }}
+          data-cy="email-button"
         >
           Add me!
         </Button>

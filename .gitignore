@@ -73,3 +73,9 @@ yarn-error.log
 **.cache
 # Environment files
 .env.**
+!.env.example
+
+
+# Test files
+videos
+screenshots
