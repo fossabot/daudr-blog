@@ -3,19 +3,6 @@
 ![CircleCI](https://img.shields.io/circleci/build/github/Daudr/daudr-blog/master.svg?label=CircleCI%20PROD)
 ![CircleCI](https://img.shields.io/circleci/build/github/Daudr/daudr-blog/develop.svg?label=CircleCI%20TEST)
 
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's blog starter
-</h1>
-
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
-
-
 ## 🚀 Quick start
 
 1. **Clone this repo**
@@ -101,10 +88,16 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 13. **`.env.example`**: Contains the example tokens used by `gatsby-config.js`
 
-## 🎓 Learning Gatsby
+## Run Tests
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+This project comes with a full set of tests
 
-* **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+### Unit tests
 
-* **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+Just type in your terminal:
+`npm run test`
+
+### E2E tests
+
+Just type in your terminal:
+`npm run test:e2e`
