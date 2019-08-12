@@ -4,11 +4,11 @@ description: So you're building a new, phantasmagorical web site (let's say a br
 tags: ["angular", "ssr", "firebase", "nginx", "apache"]
 keywords: ["angular", "ssr", "firebase", "nginx", "apache"]
 cover_image: https://images.unsplash.com/photo-1544986581-efac024faf62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80
-date: "2019-08-04T14:30:10.759Z"
-id: "ci-cd-from-zero-to-hero--0"
+date: "2019-08-12T10:00:00.000Z"
+id: "painless-angular-ssr"
 ---
 
-So you're building a new, phantasmagorical web site (let's say a brand new e-commerce for those absolutely unknown books that you find perfect) and you need your future clients to find it on the first search page on Google.
+So you're building a new, phantasmagorical web site (let's say a brand new e-commerce for those absolutely unknown books that you find beautifully written) and you need your future clients to find it on the first search page on Google.
 
 ![Serve your Angular app right](https://images.unsplash.com/photo-1544986581-efac024faf62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)
 > Photo by [Alev Takil](https://unsplash.com/@alevtakil) on [Unsplash](https://unsplash.com)
