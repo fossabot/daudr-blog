@@ -36,7 +36,8 @@ export const Bio = () => {
             />
             <div>
               Written by <strong>{author}</strong> a freelance web developer
-              that works in Italy and in the world.
+              that works in Italy and in the world. <br />
+              His main area of expertise are <strong>Angular</strong>, <strong>React</strong>, <strong>Firebase</strong> & <strong>Serverless Architectures</strong>
               <div style={{ marginTop: rhythm(1 / 2) }}></div>
               You can also find him on
               <br />
