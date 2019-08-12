@@ -245,7 +245,24 @@ exports[`Tags renders correctly 1`] = `
         <strong>
           Michele Da Rin Fioretto
         </strong>
-         a freelance web developer that works in Italy and in the world.
+         a freelance web developer that works in Italy and in the world. 
+        <br />
+        His main area of expertise are 
+        <strong>
+          Angular
+        </strong>
+        , 
+        <strong>
+          React
+        </strong>
+        , 
+        <strong>
+          Firebase
+        </strong>
+         & 
+        <strong>
+          Serverless Architectures
+        </strong>
         <div
           style={
             Object {
